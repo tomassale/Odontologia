@@ -3,7 +3,7 @@ import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "Consultorio Odontológico",
-  description: "Consultorio de Odontología - Atención lunes a viernes 9 a 18 hs",
+  description: "Consultorio de Odontología - Atención martes y jueves de 13 a 18",
   keywords: ["Dentista", "Zona Oeste", "Tablada", "Consultorio"],
   icons: {
     icon: "/favicon.ico"

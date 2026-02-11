@@ -17,7 +17,7 @@ export default function HeaderLinks({links}: HeaderProps) {
 
   return (
     <nav className='headerLinks'>
-      {links.map((link)=>(
+      {links?.map((link)=>(
         <Link
           key={link.id}
           to={link.ref}

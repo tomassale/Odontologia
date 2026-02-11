@@ -4,18 +4,19 @@ import { useEffect, useState } from 'react'
 
 export default function Header() {
 
-  const [headerData, setHeaderData] = useState({ links: []})
+  const [links, setLinks] = useState([])
 
   useEffect(()=> {
     fetch('/json/header.json')
       .then(res => res.json())
-      .then(data => setHeaderData(data))
+      .then(data => {
+        setLinks(data)
+        console.log(data)
+      })
       .catch(err => 
         console.error("Error cargando el header: ", err)
       )
   }, [])
-
-  const { links } = headerData;
 
   return (
     <header className='header'>

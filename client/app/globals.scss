@@ -12,8 +12,9 @@ $desktop: 'min-width: 1920px';
 //MIXINS
 @mixin titles{
   text-align: center;
-  font-size: rem;
-  padding-top: 1%;
+  padding-top: 5%;
+  @media (#{$notebook}), (#{$desktop}) { font-size: 3rem; }
+  @media (#{$mini}), (#{$mobile}) { font-size: 2rem; padding-top: 8%; }
 }
 
 @mixin divs{
@@ -25,8 +26,10 @@ $desktop: 'min-width: 1920px';
 }
 
 //KEYFRAMES
-
-
+@keyframes fade-left { 0% { opacity: 0; transform: translateX(-10%); } 100% { opacity: 1; transform: translateX(0); } }
+@keyframes fade-right { 0% { opacity: 0; transform: translateX(10%); } 100% { opacity: 1; transform: translateX(0); } }
+@keyframes fade-up { 0% { opacity: 0; transform: translateY(40%); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes fade-down { 0% { opacity: 0; transform: translateY(-40%); } 100% { opacity: 1; transform: translateY(0); } }
 
 //STYLES (Mobile First)
 *{
@@ -36,19 +39,44 @@ $desktop: 'min-width: 1920px';
     text-decoration: none;
     color: inherit;
     user-select: none;
+    cursor: pointer;
   }
   h1{
     @include titles();
   }
-}
-
-html{
   ::-webkit-scrollbar{
     width: 0;
   }
-  .header{
-    position: static;
-    background-color: blue
+  ::-moz-selection, ::selection{
+    background: #7bc9d6;
+    color: whitesmoke;
+  }
+}
+
+body{
+  .header {
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    height: max-content;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5%;
+    @media (#{$desktop}) { margin-top: 0.5% }
+    .headerLinks {
+      padding: 0.6%;
+      border-radius: 15px;
+      background-color: rgba(0, 0, 0, 0.685);
+      border-top: black 1px bold;
+      a{
+        color: aliceblue;
+        font-size: 0.7rem;
+        padding: 0.6rem;
+        @media (#{$mini}) { padding: 0.5rem; font-size: 0.6rem }
+        @media (#{$notebook}), (#{$desktop}) { padding: 1.2rem; font-size: 1.5rem }
+      }
+    }
   }
   .dentista{
     @include divs();
@@ -56,20 +84,21 @@ html{
   .nosotros{
     @include divs();
   }
-  .tratamiento{
+  .tratamientos{
     @include divs();
+    animation: fade-up 1s;
   }
   .contacto{
     @include divs();
   }
   .footer{
-    height: 70px;
+    height: 5%;
     background-color: rgba(126, 206, 162, 0.692);
     color: black;
     text-align: center;
-    padding-top: 1.5%;
+    padding-top: 1%;
     a{
-      font-size: 27px;
+      font-size: 1rem;
     }
   }
 }
