@@ -1,10 +1,9 @@
 [
-  {"id": 0, "src": "", "alt": "", "title": ""},
-  {"id": 1, "src": "", "alt": "", "title": ""},
-  {"id": 2, "src": "", "alt": "", "title": ""},
-  {"id": 3, "src": "", "alt": "", "title": ""},
-  {"id": 4, "src": "", "alt": "", "title": ""},
-  {"id": 5, "src": "", "alt": "", "title": ""},
-  {"id": 6, "src": "", "alt": "", "title": ""},
-  {"id": 7, "src": "", "alt": "", "title": ""}
+  {"id": 0, "src": "/", "alt": "item odontología adultos", "title": "Odontología adultos"},
+  {"id": 1, "src": "/", "alt": "item odontologia niños", "title": "Odontologia niños"},
+  {"id": 2, "src": "/", "alt": "item protesis dentales fijas y removibles", "title": "Protesis dentales fijas y removibles"},
+  {"id": 3, "src": "/", "alt": "item tratamientos de conductos", "title": "Tratamientos de conductos"},
+  {"id": 4, "src": "/", "alt": "item periodoncia", "title": "Periodoncia"},
+  {"id": 5, "src": "/", "alt": "item tratamiento del bruxismo", "title": "Tratamiento del bruxismo"},
+  {"id": 6, "src": "/", "alt": "item estetica dental", "title": "Estetica dental"}
 ]
