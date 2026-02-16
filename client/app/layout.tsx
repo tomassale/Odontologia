@@ -4,7 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Consultorio Odontológico",
-  description: "Consultorio de Odontología - Atención martes y jueves de 13 a 18",
+  description: "Consultorio de Odontología - Atención Lunes y Miércoles de 15:30 a 20:00",
   keywords: ["Dentista", "Zona Oeste", "Tablada", "Consultorio"],
   icons: {
     icon: "/favicon.ico"

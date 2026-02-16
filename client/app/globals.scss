@@ -13,6 +13,7 @@ $desktop: 'min-width: 1920px';
 @mixin titles{
   text-align: center;
   padding-top: 5%;
+  padding-bottom: 3rem;
   @media (#{$notebook}), (#{$desktop}) { font-size: 3rem; }
   @media (#{$mini}), (#{$mobile}) { font-size: 2rem; padding-top: 8%; }
 }
@@ -20,9 +21,23 @@ $desktop: 'min-width: 1920px';
 @mixin divs{
   position: relative;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   scroll-snap-align: center;
   scroll-snap-stop: normal;
+}
+
+@mixin turn($end) {
+  @for $i from 1 through $end {
+    :nth-child(#{$i}) {
+      animation-delay: $i * 0.2s;
+    }
+  }
+}
+
+@mixin fade($fade, $delay) {
+  opacity: 0;
+  animation: fade-#{$fade} 0.6s forwards;
+  animation-delay: $delay;
 }
 
 //KEYFRAMES
@@ -54,49 +69,125 @@ $desktop: 'min-width: 1920px';
 }
 
 body{
+  // --- HEADER ---
   .header {
     position: fixed;
     z-index: 2;
+    right: 2%;
+    top: 35%;
     display: flex;
-    width: 100%;
-    height: max-content;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0.5%;
-    @media (#{$desktop}) { margin-top: 0.5% }
+    height: max-content; 
+    justify-content: flex-end; 
+    align-items: flex-end;
+    margin-top: 1rem;
+    animation: fade-right 2s;
+  
     .headerLinks {
-      padding: 0.6%;
-      border-radius: 15px;
-      background-color: rgba(0, 0, 0, 0.685);
-      border-top: black 1px bold;
-      a{
-        color: aliceblue;
-        font-size: 0.7rem;
-        padding: 0.6rem;
-        @media (#{$mini}) { padding: 0.5rem; font-size: 0.6rem }
-        @media (#{$notebook}), (#{$desktop}) { padding: 1.2rem; font-size: 1.5rem }
+      padding: 0.5rem;
+      border-radius: 20px;
+      background-color: rgba(0, 0, 0, 0.514);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 20px;
+  
+      a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: transparent;
+        font-size: 0.9rem;
+        padding-block: 1.2rem;
+        transition: all 0.3s ease;
+  
+        // --- EL PUNTO (Estado Base: Visible y Blanco) ---
+        &::before {
+          content: '';
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          background-color: aliceblue; 
+          border-radius: 50%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: all 0.3s ease;
+          opacity: 1;
+        }
+  
+        // --- ESTADO ACTIVO (Punto Celeste) ---
+        &.active {
+          &::before {
+            background-color: #00BFFF;
+            box-shadow: 0 0 12px #00BFFF;
+            transform: translate(-50%, -50%) scale(1.3);
+            text-align: end;
+          }
+        }
+  
+        // --- HOVER (Mostrar Texto, Esconder Punto) ---
+        &:hover {
+          color: aliceblue;
+          &::before {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+          }
+        }
       }
     }
   }
-  .dentista{
+  // --- SECCION DENTISTA ---
+  .dentista {
     @include divs();
+    color: white;
+    .fondoDentista {
+      position: sticky;
+      top: 0;
+      z-index: -1;
+    }
   }
+  // --- SECCION NOSOTROS ---
   .nosotros{
     @include divs();
   }
+  // --- SECCION TRATAMIENTOS ---
   .tratamientos{
     @include divs();
-    animation: fade-up 1s;
+    .tratamientoItems{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 90%;
+      margin: auto;
+      align-items: center;
+      gap: 3rem;
+      .item{
+        @include fade(up, 1.5s);
+        flex-shrink: 0;
+        height: max-content;
+        p{ 
+          text-align: center;
+        }
+        &:hover{
+          scale: 1.05;
+        }
+      }
+      @include turn(8);
+    }
   }
+  // --- SECCION CONTACTO ---
   .contacto{
     @include divs();
     h3{
       color: #728EC2;
     }
     ul{
+      margin-left: 1.1rem;
       li{}
     }
   }
+  // --- FOOTER ---
   .footer{
     height: 5%;
     background-color: #97CBB5;

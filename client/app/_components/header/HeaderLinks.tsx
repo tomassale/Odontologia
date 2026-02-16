@@ -1,33 +1,39 @@
 "use client"
+import { useActiveSection } from "@/app/hooks/useActiveSection"
 import { Link } from "react-scroll"
 
-interface LinkItem{
-  id: number,
-  ref: string,
-  text: string,
+export interface LinkItem {
+  id: number;
+  ref: string; // El id de la sección (ej: "nosotros")
+  text: string;
 }
 
-interface HeaderProps{
+export interface HeaderProps {
   readonly links: LinkItem[]
 }
 
-export default function HeaderLinks({links}: HeaderProps) {
+export default function HeaderLinks({ links }: HeaderProps) {
 
-  if(!links) return null
+  const sectionIds = links.map(link => link.ref);
+  const activeSection = useActiveSection(sectionIds);
+
+  if (!links || links.length === 0) return null;
 
   return (
     <nav className='headerLinks'>
-      {links?.map((link)=>(
+      {links.map((link) => (
         <Link
           key={link.id}
           to={link.ref}
+          spy={true}
           smooth={true}
           duration={500}
           offset={-40}
-          draggable='false'
+          className={activeSection === link.ref ? 'active' : ''}
+          
         >
           {link.text}
-        </Link> 
+        </Link>
       ))}
     </nav>
   )

@@ -13,9 +13,9 @@ interface TratamientoProps{
 
 export default function TratamientoItem({data} : TratamientoProps) {
   return (
-    <div className='tratamientoitem'>
+    <div className='tratamientoItems'>
       {data.map((img)=>(
-        <div key={img.id}>
+        <div className='item' key={img.id}>
           <Image 
             src={img.src}
             height={150}
