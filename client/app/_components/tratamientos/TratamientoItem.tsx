@@ -1,5 +1,8 @@
+"use client"
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 
+// ... (tus interfaces se mantienen igual)
 interface Tratamiento {
   id: number,
   src: string,
@@ -12,14 +15,23 @@ interface TratamientoProps{
 }
 
 export default function TratamientoItem({data} : TratamientoProps) {
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.4,
+  })
+
   return (
-    <div className='tratamientoItems'>
+    <div 
+      ref={ref}
+      className={`tratamientoItems ${inView ? 'inView' : ''}`}
+    >
       {data.map((img)=>(
-        <div className='item' key={img.id}>
+        <div className='item' key={img.id} >
           <Image 
             src={img.src}
-            height={150}
-            width={150}
+            height={70}
+            width={70}
             alt={img.alt}
           />
           <p>{img.title}</p>
