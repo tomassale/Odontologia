@@ -30,8 +30,8 @@ export default function TratamientoItem({data} : TratamientoProps) {
         <div className='item' key={img.id} >
           <Image 
             src={img.src}
-            height={70}
-            width={70}
+            height={50}
+            width={50}
             alt={img.alt}
           />
           <p>{img.title}</p>

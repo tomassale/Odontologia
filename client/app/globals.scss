@@ -175,27 +175,32 @@ body{
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      width: 60%;
+      width: 80%;
       margin: auto;
+      justify-items: center;
       align-items: center;
-      gap: 3rem;
-      @media (#{$notebook}), (#{$desktop}) { width: 90%;}
+      gap: 1rem;
+
+      @media (#{$mini}), (#{$mobile}) { margin: 15% auto 0 }
+      @media (#{$tablet}) { margin: 10% auto 0 }
+      @media (#{$notebook}) { margin: 2% auto 0 }
+      @media (#{$notebook}), (#{$desktop}) { width: 60% }
+
       .item {
+        width: 18vw;
+        height: 18vh;
         opacity: 0;
         transform: translateY(40px);
         flex-shrink: 0;
-        height: max-content;
         transition: scale 0.3s ease;
-        @media (#{$notebook}), (#{$desktop}) { 
-          img{
-            width: 160;
-            height: 160;
-          }
-        }
+
+        @media (#{$notebook}), (#{$desktop}) { img { width: 160; height: 160; }}
+
         p {
           text-align: center;
           font-size: .6rem;
           width: 60%;
+
           @media (#{$notebook}), (#{$desktop}) { font-size: 1.5rem; width: 60%; }
         }
         &:hover {
