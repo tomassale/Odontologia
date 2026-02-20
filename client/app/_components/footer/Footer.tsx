@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
     <footer className='footer'>
-        <Link href="/Terms">
+        <Link href="/Terminos">
           Terminos y condiciones © {anio}. All rights reserved.
         </Link>
     </footer>

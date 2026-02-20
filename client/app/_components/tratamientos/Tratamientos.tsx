@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import TratamientoItem from "./TratamientoItem";
+import Image from "next/image";
 
 export default function Tratamientos() {
 
@@ -15,6 +16,12 @@ export default function Tratamientos() {
     <div className='tratamientos'>
       <h1>Tratamientos</h1>
       <TratamientoItem data={items}/>
+      <Image
+        src={'/img/backgrounds/backgroundTreatments.webp'}
+        alt='Fondo tratamientos'
+        fill
+        priority
+      />
     </div>
   )
 }

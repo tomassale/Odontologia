@@ -1,6 +1,13 @@
+"use client"
+import { useInView } from "react-intersection-observer";
 import UnorderedList from "./UnorderedList";
 
 export default function RightComponent() {
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
 
   const servicios = [
     "Prótesis dentales: Realización de prótesis fijas y removibles.",
@@ -18,20 +25,21 @@ export default function RightComponent() {
   ];
 
   return (
-    <div className='rightComponent'>
+    <div 
+    className={`rightComponent ${inView ? 'inView' : ''}`}
+      ref={ref}
+    >
       <p>
         Silvia Pellegrino desempeña su labor en su consultorio privado brindando atención personalizada tanto a adultos como a niños. Su principal objetivo es el cuidado integral de la salud bucal, combinando experiencia y dedicación en cada diagnóstico.
       </p>
-      <h5>Servicios y Tratamientos:</h5>
+      <h4>Servicios y Tratamientos:</h4>
       <p>
         Se realizan tratamientos de Odontología general para adultos y Odontopediatría. 
         El consultorio se especializa en la recuperación de la salud dental y la estética, abarcando:
         (Nota: No se realizan cirugías ni ortodoncia. Los casos de implantes se manejan mediante consulta por derivación).
       </p>  
       <UnorderedList item={servicios}/>
-      <p>
-        <h5>Trayectoria y Antecedentes:</h5>
-      </p>
+      <h4>Trayectoria y Antecedentes:</h4>
       <UnorderedList item={trayectoria}/>
     </div>
   )

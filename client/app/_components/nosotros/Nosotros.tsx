@@ -5,8 +5,10 @@ export default function Nosotros() {
   return (
     <div className='nosotros'>
       <h1>Nosotros</h1>
-      <LeftComponent/>
-      <RightComponent/>
+      <div className='nosotrosDivision'>
+        <LeftComponent/>
+        <RightComponent/>
+      </div>
     </div>
   )
 }

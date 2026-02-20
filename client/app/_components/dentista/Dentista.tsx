@@ -5,9 +5,10 @@ import RightComponent from "./right/RightComponent";
 export default function Dentista() {
   return (
     <div className='dentista'>
-      <h1>Dra. Silvia Pellegrino</h1>
-      <LeftComponent/>
-      <RightComponent/>
+      <div className='dentistaDivision'>
+        <LeftComponent/>
+        <RightComponent/>
+      </div>
       <Image
         className="fondoDentista"
         src='/img/background.webp'

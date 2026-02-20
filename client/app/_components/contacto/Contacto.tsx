@@ -16,8 +16,10 @@ export default function Contacto() {
   return (
     <div className='contacto'>
       <h1>Contacto</h1>
-      <ContactoItem data={item}/>
-      <ContactMap/>
+      <div className='contactoDivision'>
+        <ContactMap/>
+        <ContactoItem data={item}/>
+      </div>
     </div>
   )
 }

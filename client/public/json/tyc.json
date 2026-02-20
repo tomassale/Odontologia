@@ -1,0 +1,105 @@
+[
+  {
+    "id": "section-1",
+    "title": "1. Términos y Condiciones de Uso",
+    "description": "",
+    "subsections": [
+      {
+        "id": "sub-1-1",
+        "subtitle": "1.1. Uso del Sitio y Finalidad",
+        "items": [
+          "Finalidad: Este sitio web tiene como objetivo brindar información sobre los servicios de salud y tratamientos ofrecidos por el Consultorio Silvia Pellegrino, así como facilitar vías de contacto y reserva de turnos.",
+          "Aviso Médico Legal: La información proporcionada en este sitio web es de carácter estrictamente informativo y educativo. En ningún caso reemplaza la consulta, el diagnóstico o el tratamiento médico u odontológico profesional. Ante cualquier duda sobre tu salud, debes acudir a una consulta presencial.",
+          "Conducta del usuario: Te comprometes a hacer un uso adecuado, lícito y de buena fe del sitio web. Queda estrictamente prohibido utilizar esta página para actividades ilícitas, fraudulentas, o que puedan dañar la reputación o el funcionamiento del consultorio."
+        ]
+      },
+      {
+        "id": "sub-1-2",
+        "subtitle": "1.2. Propiedad Intelectual",
+        "items": [
+          "Todo el contenido de este sitio web, incluyendo textos, gráficos, logotipos, imágenes y código fuente, es propiedad exclusiva del Consultorio Silvia Pellegrino y está protegido por la Ley N° 11.723 de Propiedad Intelectual de la República Argentina y los tratados internacionales sobre derechos de autor. Queda prohibida su reproducción, distribución, exhibición o modificación sin nuestra autorización previa y por escrito."
+        ]
+      },
+      {
+        "id": "sub-1-3",
+        "subtitle": "1.3. Limitación de Responsabilidad",
+        "items": [
+          "Nos esforzamos por mantener la información del sitio actualizada y libre de errores, pero no garantizamos la exactitud absoluta ni la vigencia de todo el contenido en todo momento.",
+          "El Consultorio Silvia Pellegrino no se hace responsable por daños directos o indirectos que puedan derivarse del uso de este sitio, incluyendo interrupciones del servicio, virus informáticos o fallas en la red.",
+          "Nuestro sitio puede contener enlaces a páginas de terceros sobre las cuales no tenemos control ni responsabilidad."
+        ]
+      },
+      {
+        "id": "sub-1-4",
+        "subtitle": "1.4. Modificaciones",
+        "items": [
+          "Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquier momento. Los cambios entrarán en vigencia en el momento de su publicación en esta página."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "section-2",
+    "title": "2. Política de Privacidad",
+    "description": "En el Consultorio Silvia Pellegrino, respetamos tu privacidad y protegemos tus datos personales en estricto cumplimiento con la Ley N° 25.326 de Protección de Datos Personales de la República Argentina y normativas internacionales aplicables.",
+    "subsections": [
+      {
+        "id": "sub-2-1",
+        "subtitle": "2.1. Información que recopilamos",
+        "items": [
+          "Datos personales: Nombre, dirección de correo electrónico, teléfono o dirección postal (solo si los proporcionas voluntariamente y con tu consentimiento expreso a través de formularios de contacto o reserva de turnos).",
+          "Datos de salud (Datos Sensibles): Cualquier información referida a tu salud compartida mediante nuestros formularios será tratada con la máxima confidencialidad, amparada bajo el secreto profesional y lo dispuesto por el Art. 7 de la Ley 25.326.",
+          "Datos de navegación: Dirección IP, tipo de navegador, páginas visitadas y tiempo de permanencia, recopilados de forma automática con fines estadísticos."
+        ]
+      },
+      {
+        "id": "sub-2-2",
+        "subtitle": "2.2. Uso de la Información",
+        "items": [
+          "Gestionar y confirmar tus turnos o consultas.",
+          "Proveer los servicios de salud solicitados.",
+          "Mejorar la experiencia de usuario y el diseño de nuestro sitio web.",
+          "Enviar comunicaciones relevantes a tu atención (solo si nos diste tu consentimiento previo, con opción de cancelación en cualquier momento)."
+        ]
+      },
+      {
+        "id": "sub-2-3",
+        "subtitle": "2.3. Protección y Compartición de Datos",
+        "items": [
+          "No vendemos, alquilamos ni compartimos tu información personal con terceros para fines comerciales. Solo compartiremos tus datos si es requerido mediante orden judicial, o si es estrictamente necesario para proveedores de servicios técnicos que nos ayudan a operar el sitio, quienes están sujetos a rigurosos acuerdos de confidencialidad."
+        ]
+      },
+      {
+        "id": "sub-2-4",
+        "subtitle": "2.4. Política de Cookies",
+        "items": [
+          "Este sitio web utiliza cookies (pequeños archivos de texto que se guardan en tu navegador) para mejorar tu experiencia, recordar tus preferencias y obtener métricas de tráfico. Al navegar por nuestro sitio, aceptas el uso de cookies. Puedes configurar tu navegador para rechazarlas, aunque esto podría afectar el funcionamiento de ciertas áreas de la página."
+        ]
+      },
+      {
+        "id": "sub-2-5",
+        "subtitle": "2.5. Tus Derechos (Derechos ARCO)",
+        "items": [
+          "De conformidad con la normativa vigente, tienes derecho a solicitar el Acceso, Rectificación, Actualización o Supresión de tus datos personales almacenados en nuestros sistemas.",
+          "Información Legal Obligatoria (Disposición 10/2008 DNPDP): El titular de los datos personales tiene la facultad de ejercer el derecho de acceso a los mismos en forma gratuita a intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto conforme lo establecido en el artículo 14, inciso 3 de la Ley Nº 25.326. La AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de Órgano de Control de la Ley N° 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en materia de protección de datos personales."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "section-3",
+    "title": "3. Contacto",
+    "description": "Para ejercer tus derechos sobre tus datos personales o si tenés alguna duda sobre estos Términos y Condiciones, por favor contactanos a través de los siguientes canales:",
+    "subsections": [
+      {
+        "id": "sub-3-1",
+        "subtitle": "Canales de atención",
+        "items": [
+          "Responsable de la Base de Datos: Bytek Technology",
+          "Correo electrónico: bytektechnology@gmail.com",
+          "Teléfono: +54 9 11 5963-8765"
+        ]
+      }
+    ]
+  }
+]

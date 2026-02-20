@@ -17,11 +17,12 @@ $desktop: "min-width: 1901px";
   padding-bottom: 3rem;
   @media (#{$notebook}), (#{$desktop}) { font-size: 3rem; }
   @media (#{$mini}), (#{$mobile}) { font-size: 2rem; padding-top: 8%; }
+  @include fade(top, 1s);
 }
 
 @mixin divs{
   position: relative;
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
   scroll-snap-align: center;
   scroll-snap-stop: normal;
@@ -73,6 +74,8 @@ $desktop: "min-width: 1901px";
 }
 
 body{
+  flex: 1;
+  
   // --- HEADER ---
   .header {
     position: fixed;
@@ -140,73 +143,142 @@ body{
   .dentista {
     @include divs();
     color: white;
-    h1{}
+    h1{
+      margin: 0;
+    }
     .fondoDentista {
       position: sticky;
       top: 0;
       z-index: -1;
     }
-    .leftComponent{
-      p{
-
+    .dentistaDivision{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      .leftComponent{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        flex: 1;
+        margin-left: 4rem;
+        @include fade(left, 1s);
+        p{
+          @media (#{$notebook}), (#{$desktop}) { font-size: 2rem; width: 80%; }
+        }
+        a{
+          background-color: #00000050;
+          border-radius: 18px;
+          border: 1.5px solid rgba(255, 255, 255, 0.712);
+          font-size: 1rem;
+          padding: 0.5%;
+          margin: auto;
+          @media (#{$notebook}), (#{$desktop}) { font-size: 2rem }
+        }
       }
-      a{
-        background-color: #00000050;
-        border-radius: 5px;
-        border: 1.5px solid rgba(255, 255, 255, 0.712);
-        font-size: 1rem;
-        padding: 0.5%
+      .rightComponent{
+        img{
+          @include fade(up, 1s);
+        }
       }
-    }
-    .rightComponent{
-
     }
   }
 
   // --- SECCION NOSOTROS ---
   .nosotros{
     @include divs();
+    .nosotrosDivision{
+      display: flex;
+      .leftComponent{
+        opacity: 0;
+        &.inView{
+          @include fade(up, 1s)
+        }
+      }
+      .rightComponent{
+        opacity: 0;
+        &.inView{
+          @include fade(right, 1s)
+        }
+      }
+    }
   }
 
   // --- SECCION TRATAMIENTOS ---
   .tratamientos {
     @include divs();
+    
     .tratamientoItems {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
       width: 80%;
       margin: auto;
-      justify-items: center;
-      align-items: center;
-      gap: 1rem;
-
-      @media (#{$mini}), (#{$mobile}) { margin: 15% auto 0 }
-      @media (#{$tablet}) { margin: 10% auto 0 }
-      @media (#{$notebook}) { margin: 2% auto 0 }
-      @media (#{$notebook}), (#{$desktop}) { width: 60% }
-
+      gap: 1.5rem;
+  
+      @media (#{$mini}), (#{$mobile}) { margin: 15% auto 0; }
+      @media (#{$tablet}) { margin: 10% auto 0; }
+      @media (#{$notebook}) { margin: 2% auto 0; }
+      @media (#{$notebook}), (#{$desktop}) { width: 60%; }
+  
       .item {
         width: 18vw;
-        height: 18vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center;
+        gap: 15px;
+        
         opacity: 0;
         transform: translateY(40px);
         flex-shrink: 0;
         transition: scale 0.3s ease;
-
-        @media (#{$notebook}), (#{$desktop}) { img { width: 160; height: 160; }}
-
-        p {
-          text-align: center;
-          font-size: .6rem;
-          width: 60%;
-
-          @media (#{$notebook}), (#{$desktop}) { font-size: 1.5rem; width: 60%; }
+  
+        img {
+          width: 100%;
+          max-width: 180px;
+          height: auto;
+          object-fit: cover;
+          border-radius: 10px;
+          
+          @media (#{$mini}), (#{$mobile}) { 
+            width: 160px; 
+            height: 160px; 
+          }
         }
+  
+        p {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin: 0;
+          background-color: rgba(0, 0, 0, 0.45);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          
+          color: whitesmoke;
+          font-size: .8rem;
+          border-radius: 20px;
+          
+          padding: 0.5rem 1rem; 
+          width: 9rem;
+          height: 2rem;
+          max-width: 90%;
+  
+          @media (#{$notebook}), (#{$desktop}) { 
+            font-size: 1.2rem; 
+            padding: 0.8rem 1.5rem;
+          }
+        }
+        
         &:hover {
           scale: 1.05;
         }
       }
+      
       &.inView {
         .item {
           @include fade(up, 1s);
@@ -214,24 +286,48 @@ body{
         @include turn(8);
       }
     }
+    img{
+      z-index: -1;
+    }
   }
 
   // --- SECCION CONTACTO ---
   .contacto{
     @include divs();
-    h3{
-      color: #728EC2;
-    }
-    ul{
-      margin-left: 1.1rem;
-      li{}
-    }
-    .map{
-      justify-content: center;
-      align-items: center;
+    .contactoDivision{
+      display: flex;
       margin-top: 3rem;
+      .datos{
+        opacity: 0;
+        h3{
+          color: #728EC2;
+        }
+        ul{
+          margin-left: 1.1rem;
+          li{}
+        }
+        &.inView{
+          @include fade(right, 1s);
+        }
+      }
+      .map{
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        &.inView{
+          @include fade(left, 1s);
+        }
+      }
     }
   }
+  // --- TERM & CONDICIONS
+  .tyc{
+    @include divs();
+    .terms{}
+    .privacy{}
+    .contact{}
+  }
+
   // --- FOOTER ---
   .footer{
     height: 5%;
@@ -239,6 +335,7 @@ body{
     color: black;
     text-align: center;
     padding-top: 1%;
+    @media (#{$notebook}), (#{$desktop}) { padding-top: 0.5% }
     a{
       font-size: 0.8rem;
       text-shadow: 
@@ -246,6 +343,7 @@ body{
         0.2px -0.2px 0 #fff,
        -0.2px  0.2px 0 #fff,
         0.2px  0.2px 0 #fff;
+        @media (#{$notebook}), (#{$desktop}) { font-size: 1.4rem; }
     }
   }
 }

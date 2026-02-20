@@ -1,3 +1,5 @@
+import { useInView } from "react-intersection-observer";
+
 interface Contacto{
   id: number,
   subtitle: string,
@@ -10,8 +12,17 @@ interface ContactoProps{
 }
 
 export default function ContactoItem({data}: ContactoProps) {
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
   return (
-    <>
+    <div 
+      className={`datos ${inView ? 'inView' : ''}`}
+      ref={ref}  
+    >
     {data.map((obj)=>(
       <div key={obj.id} className='contactoitem'>
         <h3 >{obj.subtitle}</h3>
@@ -21,6 +32,6 @@ export default function ContactoItem({data}: ContactoProps) {
         </ul>
       </div>
       ))}
-    </>
+    </div>
   )
 }
