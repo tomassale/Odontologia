@@ -11,7 +11,7 @@ export default function Dentista() {
       </div>
       <Image
         className="fondoDentista"
-        src='/img/background.webp'
+        src='/img/backgrounds/backgroundDentist.webp'
         alt='Fondo imagen'
         fill
         priority
