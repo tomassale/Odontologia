@@ -24,7 +24,7 @@ export default function ContactoItem({data}: ContactoProps) {
       ref={ref}  
     >
     {data.map((obj)=>(
-      <div key={obj.id} className='contactoitem'>
+      <div key={obj.id} className='contactoItem'>
         <h3 >{obj.subtitle}</h3>
         <ul>
           <li>{obj.item}</li>

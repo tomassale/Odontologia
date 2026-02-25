@@ -1,6 +1,7 @@
-import Image from "next/image";
-import LeftComponent from "./left/LeftComponent";
-import RightComponent from "./right/RightComponent";
+import Image from 'next/image'
+import LeftComponent from './left/LeftComponent'
+import RightComponent from './right/RightComponent'
+import CardsDentista from './cards/CardsDentista'
 
 export default function Dentista() {
   return (
@@ -9,8 +10,9 @@ export default function Dentista() {
         <LeftComponent/>
         <RightComponent/>
       </div>
+      <CardsDentista/>
       <Image
-        className="fondoDentista"
+        className='fondoDentista'
         src='/img/backgrounds/backgroundDentist.webp'
         alt='Fondo imagen'
         fill
