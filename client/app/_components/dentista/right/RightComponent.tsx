@@ -5,8 +5,8 @@ export default function RightComponent(){
     <div className='rightComponent'>
       <Image 
         src={'/img/dentist/dentist.webp'}
-        height={600}
-        width={500}
+        height={920}
+        width={700}
         alt='dentist'
         priority
       />

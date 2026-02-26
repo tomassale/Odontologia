@@ -32,6 +32,10 @@ export default function ContactoItem({data}: ContactoProps) {
         </ul>
       </div>
       ))}
+      <p>
+        <span>Nota</span>: Los horarios de consulta telefonica quedan 
+        sujetos a los horarios de atención del consultorio
+      </p>
     </div>
   )
 }

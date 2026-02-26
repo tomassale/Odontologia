@@ -14,7 +14,7 @@ export default function Tratamientos() {
   }, [])
   return (
     <div className='tratamientos'>
-      <h1>Tratamientos</h1>
+      <h1>TRATAMIENTOS</h1>
       <TratamientoItem data={items}/>
       <Image
         src={'/img/backgrounds/backgroundTreatments.webp'}

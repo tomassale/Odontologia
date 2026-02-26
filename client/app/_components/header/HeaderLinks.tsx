@@ -4,7 +4,8 @@ import { Link } from "react-scroll"
 
 export interface LinkItem {
   id: number;
-  ref: string; // El id de la sección (ej: "nosotros")
+  ref: string;
+  off?: number;
   text: string;
 }
 
@@ -28,9 +29,8 @@ export default function HeaderLinks({ links }: HeaderProps) {
           spy={true}
           smooth={true}
           duration={500}
-          offset={-40}
+          offset={link.off? link.off : 0}
           className={activeSection === link.ref ? 'active' : ''}
-          
         >
           {link.text}
         </Link>

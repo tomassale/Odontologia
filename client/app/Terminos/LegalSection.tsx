@@ -22,16 +22,16 @@ export const LegalSection = ({ data }: Props) => {
       
       {data.description && <p className="section-description">{data.description}</p>}
       
-    {data.subsections?.map((sub) => (
-      <div key={sub.id} className="legal-subsection">
-        <h3>{sub.subtitle}</h3>
-        <ul>
-          {sub.items?.map((item, index) => (
-            <li key={`${sub.id}-item-${index}`}>{item}</li>
-          ))}
-        </ul>
-      </div>
-    ))}
+      {data.subsections?.map((sub) => (
+        <div key={sub.id} className="legal-subsection">
+          <h3>{sub.subtitle}</h3>
+          <ul>
+            {sub.items?.map((item, index) => (
+              <li key={`${sub.id}-item-${index}`}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </section>
   );
 };

@@ -7,6 +7,8 @@ export default function CardsDentista() {
     {id: 1, src: '/img/dentist/icons/uba.webp', alt:'icono universidad', title: 'Recibida en UBA', description: 'Formación académica de excelencia en una de las instituciones médicas más prestigiosas del país.'},
     {id: 2, src: '/img/dentist/icons/atencion.webp', alt:'icono atencion', title: 'Atención de calidad', description: 'Priorizamos tu comodidad con un trato cálido, humano y personalizado en cada visita.'}
   ]
+
+
   
   return (
     <div className='cardsDentista'>
@@ -18,7 +20,7 @@ export default function CardsDentista() {
             height={150}
             width={150}
           />
-          <h4>{obj.title}</h4>
+          <h3>{obj.title}</h3>
           <p>{obj.description}</p>
         </div>
       ))}

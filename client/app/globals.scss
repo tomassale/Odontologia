@@ -24,7 +24,7 @@ $desktop: "min-width: 1901px";
 
 @mixin divs{
   position: relative;
-  height: 110vh;
+  height: 120vh;
   width: 100vw;
   scroll-snap-align: center;
   scroll-snap-stop: normal;
@@ -41,6 +41,13 @@ $desktop: "min-width: 1901px";
 @mixin fade($fade, $delay) {
   animation: fade-#{$fade} 0.6s forwards;
   animation-delay: $delay;
+}
+
+@mixin background($url){
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 //KEYFRAMES
@@ -77,7 +84,6 @@ $desktop: "min-width: 1901px";
 
 body{
   flex: 1;
-  
   // --- HEADER ---
   .header {
     position: fixed;
@@ -86,7 +92,8 @@ body{
     top: 35%;
     display: flex;
     height: max-content; 
-    animation: fade-right 2s;
+    opacity: 0;
+    @include fade(right, 1s);
   
     .headerLinks {
       padding: 0.5rem 0;
@@ -126,13 +133,14 @@ body{
         }
         &.active::before {
           background-color: #00BFFF;
-          box-shadow: 0 0 12px #00BFFF;
+          box-shadow: 0 0 7px #ffffff;
           transform: translateX(50%) scale(1.3);
         }
         &:hover {
           color: rgb(108, 167, 218);
           font-weight: bold;
-          text-shadow: #000000;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+          
           &::before {
             opacity: 0;
             transform: translateX(50%) scale(0);
@@ -144,15 +152,12 @@ body{
   // --- SECCION DENTISTA ---
   .dentista {
     @include divs();
+    height: 100vh;
     color: white;
+    @include background('/img/backgrounds/backgroundDentist.webp');
     h1{
       margin: 0;
       color: whitesmoke;
-    }
-    .fondoDentista {
-      position: sticky;
-      top: 0;
-      z-index: -1;
     }
     .dentistaDivision{
       display: flex;
@@ -165,14 +170,14 @@ body{
         align-items: flex-start;
         gap: 15px;
         flex: 1;
-        margin: 10rem 4rem;
+        margin: 7rem 4rem;
         opacity: 0;
         @include fade(left, 0.5s);
         h1{
           margin-left: 3rem;
         }
         p{
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; width: 80%; }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; width: 60%; }
         }
         a{
           background-color: #00000050;
@@ -180,34 +185,69 @@ body{
           border: 1.5px solid rgba(255, 255, 255, 0.712);
           font-size: 1rem;
           padding: 0.5%;
-          margin: 10rem auto;
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; margin: 8rem auto; }
+          margin: 2rem auto 15.5rem;
+          margin-top: 2rem;
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; justify-content: center; }
+          &:hover{ transform: scale(1.02); color: #82a6f3;}
         }
       }
       .rightComponent{
+        position: absolute;
+        bottom: 0;
+        right: 0;
         img{
           opacity: 0;
+          display: block;
           @include fade(up, 0.5s);
         }
       }
     }
     .cardsDentista{
       display: flex;
+      gap: 10rem;
+      justify-content: center;
+      transform: translateY(-12.5rem);
       div{
-        background-color: whitesmoke;
-        @media (#{$notebook}), (#{$medium}), (#{$desktop}){ height: 19rem; width: 15rem }
-        img{}
-        h4{
-          text-align: center;
+        background: rgba(255, 255, 255, 0.822);
+        backdrop-filter: blur(120px);
+        -webkit-backdrop-filter: blur(120px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-top: 8px solid rgb(110, 217, 250);
+        border-radius: 10px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.445);
+        @media (#{$notebook}), (#{$medium}), (#{$desktop}){ height: 19rem; width: 16.5rem }
+        img{
+          margin: auto;
+          display: block;
         }
-        p{}
+        h3{
+          text-align: center;
+          color: black;
+          margin-top: 0.5rem;
+          font-size: 1.5rem;
+        }
+        p{
+          margin-top: 1.2rem;
+          padding: 0 0.5rem;
+          color: black;
+          text-align: center;
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}){ margin-top: 1rem; font-size: 1.2rem }
+        }
+        &:hover{
+          transform: scale(1.05);
+        }
+        opacity: 0;
+        @include fade(up, 1s);
       }
+      @include turn(3);
     }
   }
 
   // --- SECCION NOSOTROS ---
   .nosotros{
     @include divs();
+    height: 90vh;
+    padding-top: 9%;
     .nosotrosDivision{
       display: flex;
       margin: 0 auto;
@@ -262,7 +302,10 @@ body{
   // --- SECCION TRATAMIENTOS ---
   .tratamientos {
     @include divs();
+    height: 120vh;
+    @include background('/img/backgrounds/backgroundTreatments.webp');
     h1{
+      margin-top: 10%;
       color: whitesmoke;
     }
     .tratamientoItems {
@@ -350,9 +393,13 @@ body{
   // --- SECCION CONTACTO ---
   .contacto{
     @include divs();
+    height: 110vh;
+    h1{
+      margin-top: 2.5%;
+    }
     .contactoDivision{
       display: flex;
-      margin-top: 3rem;
+      margin-top: 4rem;
       .datos{
         opacity: 0;
         display: flex;
@@ -361,7 +408,7 @@ body{
         justify-content: center;
         .contactoItem{
           margin: 1.5rem 15rem;
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin: 2rem 15rem }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin: 1.8rem 15rem }
           h3{
             color: #728EC2;
             @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2.2rem; }
@@ -376,13 +423,23 @@ body{
         &.inView{
           @include fade(right, 0.5s);
         }
+        p{
+          text-align: justify;
+          width: 36rem;
+          margin: .5rem 15rem;
+          font-size: 1.7rem;
+          align-self: center;
+          span{
+            color: #527bc7; 
+          }
+        }
       }
       .map{
         flex: 1;
         justify-content: center;
         align-items: center;
         opacity: 0;
-        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin: 1rem }
+        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin-left: 4rem; margin-right: -4rem }
         &.inView{
           @include fade(left, 0.5s);
         }
