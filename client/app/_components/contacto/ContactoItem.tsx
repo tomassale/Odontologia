@@ -19,9 +19,9 @@ export default function ContactoItem({data}: ContactoProps) {
   })
 
   return (
-    <div 
+    <div
       className={`datos ${inView ? 'inView' : ''}`}
-      ref={ref}  
+      ref={ref}
     >
     {data.map((obj)=>(
       <div key={obj.id} className='contactoItem'>
@@ -33,7 +33,7 @@ export default function ContactoItem({data}: ContactoProps) {
       </div>
       ))}
       <p>
-        <span>Nota</span>: Los horarios de consulta telefonica quedan 
+        <span>Nota</span>: Los horarios de consulta telefónica quedan 
         sujetos a los horarios de atención del consultorio
       </p>
     </div>

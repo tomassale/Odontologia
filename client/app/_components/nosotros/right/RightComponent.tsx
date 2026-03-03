@@ -36,7 +36,7 @@ export default function RightComponent() {
       <p className='tratamiento'>
         Se realizan tratamientos de Odontología general para adultos y Odontopediatría. 
         El consultorio se especializa en la recuperación de la salud dental y la estética, abarcando:
-        (Nota: No se realizan cirugías ni ortodoncia. Los casos de implantes se manejan mediante consulta por derivación).
+        (Nota: No se realiza ortodoncia. Los casos de implantes y cirugías se manejan mediante consulta por derivación).
       </p>  
       <UnorderedList item={servicios}/>
       <h4>Trayectoria y Antecedentes:</h4>

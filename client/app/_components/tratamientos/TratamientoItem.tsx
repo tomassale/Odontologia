@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-// ... (tus interfaces se mantienen igual)
 interface Tratamiento {
   id: number,
   src: string,

@@ -17,8 +17,9 @@ $desktop: "min-width: 1901px";
   text-align: center;
   padding-top: 5%;
   padding-bottom: 3rem;
-  @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 3rem; }
-  @media (#{$mini}), (#{$mobile}) { font-size: 2rem; padding-top: 8%; }
+  @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 3rem }
+  @media (#{$tablet}) { font-size: 2.5rem; padding-top: 3.5rem; padding-bottom: 2rem }
+  @media (#{$mini}), (#{$mobile}) { font-size: 2rem; padding-top: 3rem; padding-bottom: 1.8rem }
   @include fade(up, 1s);
 }
 
@@ -28,6 +29,8 @@ $desktop: "min-width: 1901px";
   width: 100vw;
   scroll-snap-align: center;
   scroll-snap-stop: normal;
+  @media (#{$tablet}) { height: 110vh }
+  @media (#{$mini}), (#{$mobile}) { height: 100vh }
 }
 
 @mixin turn($end) {
@@ -46,8 +49,12 @@ $desktop: "min-width: 1901px";
 @mixin background($url){
   background-image: url($url);
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
+  background-position: center;
+  // fixed no funciona bien en iOS, solo en desktop
+  @media (#{$notebook}), (#{$medium}), (#{$desktop}) {
+    background-attachment: fixed;
+  }
 }
 
 //KEYFRAMES
@@ -84,6 +91,7 @@ $desktop: "min-width: 1901px";
 
 body{
   flex: 1;
+
   // --- HEADER ---
   .header {
     position: fixed;
@@ -117,7 +125,8 @@ body{
         white-space: nowrap;
         width: 100%;
         padding-right: 20px;
-        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.5rem; padding-block: 1.2rem }
+        @media (#{$tablet}) { font-size: 1rem; padding-block: 1rem; }
+        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.5rem; padding-block: 1.2rem; }
         &::before {
           content: '';
           position: absolute;
@@ -129,6 +138,7 @@ body{
           transform: translateX(50%);
           transition: all 0.3s ease;
           opacity: 1;
+          @media (#{$tablet}) { width: 0.65rem; height: 0.65rem; }
           @media (#{$notebook}), (#{$medium}), (#{$desktop}) { width: 0.8rem; height: 0.8rem; }
         }
         &.active::before {
@@ -149,6 +159,7 @@ body{
       }
     }
   }
+
   // --- SECCION DENTISTA ---
   .dentista {
     @include divs();
@@ -173,10 +184,17 @@ body{
         margin: 7rem 4rem;
         opacity: 0;
         @include fade(left, 0.5s);
+        @media (#{$tablet}) { margin: 5rem 2rem; }
+        @media (#{$mini}), (#{$mobile}) { margin: 0 1rem; }
         h1{
           margin-left: 3rem;
+          @media (#{$tablet}) { text-align: left; }
+          @media (#{$mini}), (#{$mobile}) { text-align: center; }
         }
         p{
+          width: 100%;
+          @media (#{$tablet}) { font-size: 1.3rem; width: 80%; }
+          @media (#{$mini}), (#{$mobile}) { text-align: justify; }
           @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; width: 60%; }
         }
         a{
@@ -187,14 +205,19 @@ body{
           padding: 0.5%;
           margin: 2rem auto 15.5rem;
           margin-top: 2rem;
+          @media (#{$tablet}) { font-size: 1.3rem; justify-content: center; }
           @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; justify-content: center; }
-          &:hover{ transform: scale(1.02); color: #82a6f3;}
+          &:hover{ transform: scale(1.02); color: #afc5f3; }
         }
       }
       .rightComponent{
         position: absolute;
         bottom: 0;
         right: 0;
+        @media (#{$tablet}) {
+          img { max-height: 60vh; width: auto; }
+        }
+        @media (#{$mini}), (#{$mobile}) { display: none; }
         img{
           opacity: 0;
           display: block;
@@ -204,9 +227,11 @@ body{
     }
     .cardsDentista{
       display: flex;
-      gap: 10rem;
+      gap: 0.5rem;
       justify-content: center;
       transform: translateY(-12.5rem);
+      @media (#{$tablet}) { gap: 3rem; transform: translateY(-8rem); }
+      @media (#{$notebook}), (#{$medium}), (#{$desktop}) { gap: 10rem; }
       div{
         background: rgba(255, 255, 255, 0.822);
         backdrop-filter: blur(120px);
@@ -215,23 +240,30 @@ body{
         border-top: 8px solid rgb(110, 217, 250);
         border-radius: 10px;
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.445);
-        @media (#{$notebook}), (#{$medium}), (#{$desktop}){ height: 19rem; width: 16.5rem }
+        @media (#{$tablet}) { height: 12rem; width: 10rem; }
+        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { height: 19rem; width: 16.5rem; }
         img{
           margin: auto;
           display: block;
+          @media (#{$mini}), (#{$mobile}) { height: 4rem; width: 4rem; }
+          @media (#{$tablet}) { height: 5rem; width: 5rem; }
         }
         h3{
           text-align: center;
           color: black;
           margin-top: 0.5rem;
-          font-size: 1.5rem;
+          font-size: 0.9rem;
+          @media (#{$tablet}) { font-size: 1.1rem; }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.5rem; }
         }
         p{
           margin-top: 1.2rem;
           padding: 0 0.5rem;
           color: black;
           text-align: center;
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}){ margin-top: 1rem; font-size: 1.2rem }
+          font-size: 0.65rem;
+          @media (#{$tablet}) { margin-top: 0.8rem; font-size: 0.85rem; }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin-top: 1rem; font-size: 1.2rem; }
         }
         &:hover{
           transform: scale(1.05);
@@ -246,23 +278,26 @@ body{
   // --- SECCION NOSOTROS ---
   .nosotros{
     @include divs();
-    height: 90vh;
+    height: 110vh;
+    @media (#{$tablet}) { height: 100vh; padding-top: 5%; }
+    @media (#{$notebook}), (#{$medium}), (#{$desktop}) { height: 90vh; }
     padding-top: 9%;
     .nosotrosDivision{
-      display: flex;
       margin: 0 auto;
-      gap: 2rem;
-
-      @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
-        width: 80%;
-      }
+      @media (#{$mini}), (#{$mobile}) { gap: 1rem; }
+      @media (#{$tablet}) { width: 90%; gap: 1.5rem; display: flex; }
+      @media (#{$notebook}), (#{$medium}), (#{$desktop}) { width: 80%; gap: 2rem; display: flex; }
 
       .leftComponent{
         flex: 1;
         margin-top: 2rem;
         opacity: 0;
+        @media (#{$mini}), (#{$mobile}) { display: none; }
+        @media (#{$tablet}) {
+          img { max-width: 100%; height: auto; }
+        }
         &.inView{
-          @include fade(up, 0.5s)
+          @include fade(up, 0.5s);
         }
       }
 
@@ -273,27 +308,25 @@ body{
         padding: 1rem;
         opacity: 0;
         font-size: 1rem;
-        @media (#{$notebook}), (#{$medium}), (#{$desktop}){ padding: 2rem; font-size: 1.5rem }
-        .tratamiento{
-
-        }
+        @media (#{$tablet}) { padding: 1.5rem; font-size: 1.2rem; }
+        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { padding: 2rem; font-size: 1.5rem; }
         h4{
           color: #728EC2;
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}){
-            font-size: 2rem;
-            margin-top: 1.1rem;
-          }
+          margin-block: 0.5rem;
+          @media (#{$tablet}) { font-size: 1.5rem; margin-block: 0.8rem; }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; margin-block: 1.1rem; }
         }
         .descripcion{
+          //
         }
         ul{
-          margin-top: 1rem;
+          margin-block: 1rem;
           li{
             margin-left: 1.8rem;
           }
         }
         &.inView{
-          @include fade(right, 0.7s)
+          @include fade(right, 0.7s);
         }
       }
     }
@@ -317,23 +350,29 @@ body{
       margin: auto;
       gap: 1.5rem;
   
-      @media (#{$mini}), (#{$mobile}) { margin: 15% auto 0; }
-      @media (#{$tablet}) { margin: 10% auto 0; }
+      @media (#{$mini}) { margin: 15% auto; gap: 2rem; }
+      @media (#{$mobile}) { margin: 15% auto; gap: 2.9rem; }
+      @media (#{$tablet}) { margin: 8% auto 0; gap: 2rem; width: 85%; }
       @media (#{$notebook}) { margin: 2% auto 0; }
       @media (#{$notebook}), (#{$medium}), (#{$desktop}) { width: 60%; }
   
       .item {
-        width: 18vw;
+        // Mobile first: ancho adaptable
+        width: 22vw;
         display: flex;
         flex-direction: column;
         align-items: center; 
         justify-content: center;
-        gap: 15px;
+        gap: 1rem;
         
         opacity: 0;
         transform: translateY(40px);
         flex-shrink: 0;
         transition: scale 0.3s ease;
+
+        @media (#{$mini}), (#{$mobile}) { width: 28vw; }
+        @media (#{$tablet}) { width: 20vw; }
+        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { width: 18vw; }
   
         img {
           width: 100%;
@@ -342,10 +381,9 @@ body{
           object-fit: cover;
           border-radius: 10px;
           
-          @media (#{$mini}), (#{$mobile}) { 
-            width: 160px; 
-            height: 160px; 
-          }
+          @media (#{$mini}) { width: 80px; height: 80px; }
+          @media (#{$mobile}) { width: 100px; height: 100px; }
+          @media (#{$tablet}) { width: 120px; height: 120px; }
         }
   
         p {
@@ -357,20 +395,17 @@ body{
           background-color: rgba(0, 0, 0, 0.45);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
-          
           color: whitesmoke;
-          font-size: .8rem;
+          font-size: .7rem;
           border-radius: 20px;
-          
-          padding: 0.5rem 1rem; 
+          padding: 0.4rem 0.9rem; 
           width: 9rem;
           height: 2rem;
           max-width: 90%;
-  
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
-            font-size: 1.2rem; 
-            padding: 0.8rem 1.5rem;
-          }
+          
+          @media (#{$mini}) { font-size: 0.5rem; padding: 0.2rem 0.8rem; }
+          @media (#{$tablet}) { font-size: 0.9rem; padding: 0.5rem 1rem; height: auto; }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.2rem; padding: 0.8rem 1.5rem; height: auto; }
         }
         
         &:hover {
@@ -391,62 +426,146 @@ body{
   }
 
   // --- SECCION CONTACTO ---
-  .contacto{
+  .contacto {
     @include divs();
-    height: 110vh;
-    h1{
+    height: 100vh;
+    @media (#{$tablet}) { height: 110vh; }
+    @media (#{$notebook}), (#{$medium}), (#{$desktop}) { height: 110vh; }
+    h1 {
       margin-top: 2.5%;
     }
-    .contactoDivision{
+
+    .contactoDivision {
       display: flex;
-      margin-top: 4rem;
-      .datos{
+      flex-direction: column;
+      
+      @media (#{$tablet}) {
+        flex-direction: row;
+        margin-top: 2rem;
+      }
+      @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
+        flex-direction: row;
+        margin-top: 4rem;
+      }
+
+      .datos {
         opacity: 0;
         display: flex;
         flex: 1;
-        flex-direction: column;
-        justify-content: center;
-        .contactoItem{
-          margin: 1.5rem 15rem;
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin: 1.8rem 15rem }
-          h3{
+        
+        order: -1; 
+        
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: space-around;
+        
+        @media (#{$tablet}) {
+          order: 0;
+          flex-direction: column;
+          justify-content: center;
+        }
+        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
+          order: 0;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        &.inView {
+          @include fade(right, 0.5s);
+        }
+
+        .contactoItem {
+          margin: 1rem; 
+          text-align: left;
+          
+          @media (#{$tablet}) {
+            margin: 1rem 3rem;
+          }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
+            margin: 1.8rem 15rem;
+          }
+
+          h3 {
             color: #728EC2;
+            font-size: 1.3rem;
+            @media (#{$tablet}) { font-size: 1.7rem; }
             @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2.2rem; }
           }
-          ul{
-            margin: 1rem;
-            li{
-              @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.7rem; margin-left: 1rem }
+
+          ul {
+            margin: 0.5rem 0;
+            li {
+              font-size: 1rem;
+              margin-left: 0.2rem;
+              @media (#{$tablet}) { font-size: 1.3rem; margin-left: 0.5rem; }
+              @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
+                font-size: 1.7rem; 
+                margin-left: 1rem; 
+              }
             }
           }
         }
-        &.inView{
-          @include fade(right, 0.5s);
-        }
-        p{
-          text-align: justify;
-          width: 36rem;
-          margin: .5rem 15rem;
-          font-size: 1.7rem;
-          align-self: center;
-          span{
+
+        p {
+          text-align: center;
+          width: 90%;
+          margin: 1.5rem auto; 
+          font-size: 1.2rem;
+          
+          @media (#{$tablet}) {
+            text-align: justify;
+            width: 90%;
+            margin: 0.5rem 3rem;
+            font-size: 1.3rem;
+          }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
+            text-align: justify;
+            width: 36rem;
+            margin: .5rem 15rem;
+            font-size: 1.7rem;
+            align-self: center;
+          }
+          
+          span {
             color: #527bc7; 
           }
         }
       }
-      .map{
+
+      .map {
         flex: 1;
+        display: flex;
         justify-content: center;
         align-items: center;
         opacity: 0;
-        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin-left: 4rem; margin-right: -4rem }
-        &.inView{
+        margin-top: 2rem;
+        
+        @media (#{$tablet}) {
+          margin-top: 0;
+          margin-left: 1rem;
+          margin-right: -1rem;
+        }
+        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
+          margin-top: 0;
+          margin-left: 4rem;
+          margin-right: -4rem;
+        }
+        iframe{
+          width: 300px;
+          height: 500px;
+          @media (#{$mini}) { height: 300px; width: 90vw }
+          @media (#{$mobile}) { height: 350px; width: 90vw }
+          @media (#{$tablet}) { height: 450px; width: 100%; max-width: 420px; }
+        }
+
+        &.inView {
           @include fade(left, 0.5s);
         }
       }
     }
   }
-  // --- TERM & CONDICIONS
+
+  // --- TERM & CONDICIONS ---
   .tyc{
     @include divs();
     .terms{}
@@ -461,7 +580,8 @@ body{
     color: black;
     text-align: center;
     padding-top: 1%;
-    @media (#{$notebook}), (#{$medium}), (#{$desktop}) { padding-top: 0.5% }
+    @media (#{$tablet}) { padding-top: 0.8%; }
+    @media (#{$notebook}), (#{$medium}), (#{$desktop}) { padding-top: 0.5%; }
     a{
       font-size: 0.8rem;
       text-shadow: 
@@ -469,7 +589,8 @@ body{
         0.2px -0.2px 0 #fff,
        -0.2px  0.2px 0 #fff,
         0.2px  0.2px 0 #fff;
-        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.4rem; }
+      @media (#{$tablet}) { font-size: 1.1rem; }
+      @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.4rem; }
     }
   }
 }
