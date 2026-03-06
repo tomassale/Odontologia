@@ -1,5 +1,5 @@
 import { useInView } from "react-intersection-observer";
-export default function ContactMap() {
+export default function ContactoMap() {
 
   const { ref, inView } = useInView({
     triggerOnce: true,

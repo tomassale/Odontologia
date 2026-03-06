@@ -1,5 +1,5 @@
 "use client"
-import ContactMap from "./ContactMap";
+import ContactoMap from "./ContactoMap";
 import ContactoItem from "./ContactoItem";
 import { useEffect, useState } from "react";
 
@@ -17,7 +17,7 @@ export default function Contacto() {
     <div className='contacto'>
       <h1>CONTACTO</h1>
       <div className='contactoDivision'>
-        <ContactMap/>
+        <ContactoMap/>
         <ContactoItem data={item}/>
       </div>
     </div>

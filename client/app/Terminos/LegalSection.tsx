@@ -17,17 +17,17 @@ interface Props {
 
 export const LegalSection = ({ data }: Props) => {
   return (
-    <section className="legal-section">
+    <section className="tyc">
       <h2>{data.title}</h2>
       
-      {data.description && <p className="section-description">{data.description}</p>}
+      {data.description && <p className="description">{data.description}</p>}
       
       {data.subsections?.map((sub) => (
-        <div key={sub.id} className="legal-subsection">
+        <div key={sub.id} className="section">
           <h3>{sub.subtitle}</h3>
           <ul>
             {sub.items?.map((item, index) => (
-              <li key={`${sub.id}-item-${index}`}>{item}</li>
+              <li key={`item-${index}`}>{item}</li>
             ))}
           </ul>
         </div>

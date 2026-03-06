@@ -1,14 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 //VARIABLES
-$mini: "max-width: 360px";
+$miniMobile: "max-width: 360px";
 $mobile: "min-width: 361px) and (max-width: 767px";
+$largeMobile: "min-width: 361px) and (max-width: 767px) and (min-height: 700px) and (max-height: 1000px";
 $tablet: "min-width: 768px) and (max-width: 870px";
 $largeTablet: "min-width: 871px) and (max-width: 1024px";
-$notebook: "min-width: 1025px) and (max-width: 1440px";
-$medium: "min-width: 1441px) and (max-width: 1900px";
+$notebook: "min-width: 1025px) and (max-width: 1439px";
+$medium: "min-width: 1440px) and (max-width: 1900px";
 $desktop: "min-width: 1901px";
 
 //MIXINS
@@ -18,9 +15,10 @@ $desktop: "min-width: 1901px";
   text-align: center;
   padding-top: 5%;
   padding-bottom: 3rem;
-  @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 3rem }
-  @media (#{$tablet}), (#{$largeTablet}) { font-size: 2.5rem; padding-top: 3.5rem; padding-bottom: 2rem }
-  @media (#{$mini}), (#{$mobile}) { font-size: 2rem; padding-top: 3rem; padding-bottom: 1.8rem }
+  @media (#{$tablet}), (#{$largeTablet}) { font-size: 3.5rem; padding-top: 3.5rem; padding-bottom: 2rem }
+  @media (#{$miniMobile}), (#{$mobile}) { font-size: 2rem; padding-top: 3rem; padding-bottom: 1.8rem }
+  @media (#{$notebook}), (#{$medium}) { font-size: 2.7rem }
+  @media (#{$desktop}) { font-size: 3rem }
   @include fade(up, 1s);
 }
 
@@ -30,8 +28,8 @@ $desktop: "min-width: 1901px";
   width: 100vw;
   scroll-snap-align: center;
   scroll-snap-stop: normal;
+  @media (#{$miniMobile}), (#{$mobile}) { height: 100vh }
   @media (#{$tablet}) { height: 110vh }
-  @media (#{$mini}), (#{$mobile}) { height: 100vh }
 }
 
 @mixin turn($end) {
@@ -52,7 +50,6 @@ $desktop: "min-width: 1901px";
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  // fixed no funciona bien en iOS, solo en desktop
   @media (#{$notebook}), (#{$medium}), (#{$desktop}) {
     background-attachment: fixed;
   }
@@ -73,7 +70,7 @@ $desktop: "min-width: 1901px";
     color: inherit;
     user-select: none;
     cursor: pointer;
-    @media (#{$mini}), (#{$mobile}), (#{$tablet}) { 
+    @media (#{$miniMobile}), (#{$mobile}), (#{$tablet}) { 
       -webkit-user-select: none; 
       -webkit-tap-highlight-color: transparent;
     }
@@ -92,7 +89,7 @@ $desktop: "min-width: 1901px";
 
 body{
   flex: 1;
-
+  overflow-x: hidden;
   // --- HEADER ---
   .header {
     position: fixed;
@@ -165,14 +162,13 @@ body{
   .dentista {
     @include divs();
     position: relative;
-    height: 100vh;
-    min-height: 100vh;
+    height: 80vh;
+    max-height: 100vh;
     color: white;
     @include background('/img/backgrounds/backgroundDentist.webp');
-    h1{
-      margin: 0;
-      color: whitesmoke;
-    }
+    @media (#{$miniMobile}) { height: 95vh }
+    @media (#{$tablet}), (#{$largeTablet}), (#{$notebook}), (#{$medium}), (#{$desktop}) { height: 100vh }
+    
     .dentistaDivision{
       display: flex;
       justify-content: space-between;
@@ -187,41 +183,47 @@ body{
         margin: 7rem 4rem;
         opacity: 0;
         @include fade(left, 0.5s);
-        @media (#{$tablet}), (#{$largeTablet}) { margin: 5rem 2rem; }
-        @media (#{$mini}), (#{$mobile}) { margin: 0 1rem }
+        @media (#{$tablet}), (#{$largeTablet}) { margin: 2rem 2rem }
+        @media (#{$miniMobile}), (#{$mobile}) { margin: 0 1rem }
+        @media (#{$notebook}), (#{$medium}) { margin: 0 2rem }
         h1{
-          margin-left: 3rem;
-          @media (#{$tablet}), (#{$largeTablet}) { text-align: left; font-size: 3.5rem; }
-          @media (#{$mini}), (#{$mobile}) { text-align: center; }
+          width: 100%;
+          color: whitesmoke;
+          @media (#{$miniMobile}), (#{$mobile}) { text-align: center; font-size: 1.9rem; }
+          @media (#{$largeMobile}) { text-align: center }
+          @media (#{$tablet}), (#{$largeTablet}), (#{$notebook}), (#{$medium}), (#{$desktop}) { text-align: left; font-size: 3.5rem; margin-left: 3rem }
         }
         p{
           z-index: 1;
           width: 100%;
-          @media (#{$mini}), (#{$mobile}) { text-align: justify }
-          @media (#{$tablet}) { font-size: 2rem; width: 90%; text-align: justify; margin-top: 5vh}
-          @media (#{$largeTablet}) { font-size: 2.5rem; width: 90%; text-align: justify }
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; width: 60% }
+          @media (#{$miniMobile}), (#{$mobile}) { text-align: justify }
+          @media (#{$largeMobile}) { font-size: 1.3rem;}
+          @media (#{$tablet}) { font-size: 2rem; width: 90%; text-align: justify; margin-top: 2vh}
+          @media (#{$largeTablet}) { font-size: 2.4rem; width: 90%; text-align: justify }
+          @media (#{$notebook}), (#{$medium}) { font-size: 1.7rem; width: 65% }
+          @media (#{$desktop}) { font-size: 2rem; width: 60% }
         }
         a{
           background-color: #00000050;
           border-radius: 18px;
           border: 1.5px solid rgba(255, 255, 255, 0.712);
           padding: 0.5%;
-          @media (#{$mini}), (#{$mobile}) { font-size: 1rem; padding: 1.5%; margin: auto}
-          @media (#{$tablet}) { font-size: 1.6rem; justify-content: center; margin-top: 5rem; margin-bottom: auto }
-          @media (#{$largeTablet}) { font-size: 1.8rem; justify-content: center; margin-top: 7rem }
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; justify-content: center; margin: 2rem auto 15.5rem; }
-          &:hover{ transform: scale(1.02); color: #afc5f3; }
+          @media (#{$miniMobile}), (#{$mobile}) { font-size: 1rem; padding: 1.5%; margin-top: 2rem; margin-left: 35% }
+          @media (#{$largeMobile}) { font-size: 1.2rem; margin-block: 5rem; }
+          @media (#{$tablet}) { font-size: 1.6rem; justify-content: center; margin-top: 5rem; margin-left: 20% }
+          @media (#{$largeTablet}) { font-size: 1.8rem; justify-content: center; margin-top: 10%; margin-left: 20% }
+          @media (#{$notebook}), (#{$medium}) { font-size: 1.7rem; justify-content: center; margin-top: 5%; margin-left: 25% }
+          @media (#{$desktop}) { font-size: 2rem; justify-content: center; margin: 2rem auto 15.5rem }
+          &:hover{ transform: scale(1.02); color: #afc5f3 }
         }
       }
       .rightComponent{
         position: absolute;
         bottom: 0;
         right: 0;
-        @media (#{$tablet}) {
-          img { max-height: 60vh; width: auto; }
-        }
-        @media (#{$mini}), (#{$mobile}) { display: none; }
+        @media (#{$miniMobile}), (#{$mobile}) { display: none }
+        @media (#{$largeMobile}), (#{$tablet}) { img { max-height: 50vh; width: auto }}
+        @media (#{$notebook}), (#{$medium}) { img { height: 90vh; width: auto; }}
         img{
           opacity: 0;
           display: block;
@@ -230,15 +232,17 @@ body{
       }
     }
     .cardsDentista{
-      
-      margin-top: auto;
-      padding-bottom: 2rem;
+      position: absolute;
       display: flex;
       gap: 0.5rem;
-      justify-content: center;
-      @media (#{$tablet}) { gap: 3rem; padding-bottom: 1rem }
-      @media (#{$largeTablet}) { gap: 4rem }
-      @media (#{$notebook}), (#{$medium}), (#{$desktop}) { gap: 10rem; }
+      left: 50%;
+      transform: translateX(-50%);
+      @media (#{$miniMobile}), (#{$mobile}) { gap: 1rem; bottom: -12% }
+      @media (#{$largeMobile}) { gap: 1.5rem; bottom: -12% }
+      @media (#{$tablet}) { gap: 2.5rem; bottom: -11% }
+      @media (#{$largeTablet}) { gap: 4rem; bottom: -10% }
+      @media (#{$notebook}), (#{$medium}) { gap: 6rem; bottom: -22% }
+      @media (#{$desktop}) { gap: 10rem; bottom: -13% }
       div{
         background: rgba(255, 255, 255, 0.822);
         backdrop-filter: blur(120px);
@@ -247,22 +251,31 @@ body{
         border-top: 8px solid rgb(110, 217, 250);
         border-radius: 10px;
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.445);
-        @media (#{$tablet}) { height: 12rem; width: 10rem; }
-        @media (#{$largeTablet}) { height: 16rem; width: 14rem;}
+        @media (#{$miniMobile}) { height: 8rem; width: 5.5rem }
+        @media (#{$mobile}) { height: 8.5rem; width: 6rem }
+        @media (#{$largeMobile}) { height: 11rem; width: 7rem;}
+        @media (#{$tablet}) { height: 15rem; width: 13rem; }
+        @media (#{$largeTablet}) { height: 19rem; width: 16rem;}
         @media (#{$notebook}), (#{$medium}), (#{$desktop}) { height: 19rem; width: 16.5rem; }
         img{
           margin: auto;
           display: block;
-          @media (#{$mini}), (#{$mobile}) { height: 4rem; width: 4rem; }
-          @media (#{$tablet}) { height: 5rem; width: 5rem; }
+          @media (#{$miniMobile}), (#{$mobile}) { height: 2.5rem; width: 2.5rem; }
+          @media (#{$largeMobile}) { height: 4rem; width: 4rem; }
+          @media (#{$tablet}) { height: 6rem; width: 6rem; }
+          @media (#{$largeTablet}) { height: 7rem; width: 7rem; }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { height: 8rem; width: 8rem; }
         }
         h3{
           text-align: center;
           color: black;
           margin-top: 0.5rem;
-          font-size: 0.9rem;
-          @media (#{$tablet}) { font-size: 1.1rem; }
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.5rem; }
+          font-size: 0.7rem;
+          @media (#{$miniMobile}), (#{$mobile}) { font-size: 0.55rem }
+          @media (#{$largeMobile}) { font-size: 0.7rem}
+          @media (#{$tablet}) { font-size: 1.2rem }
+          @media (#{$largeTablet}) { font-size: 1.4rem }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.5rem }
         }
         p{
           margin-top: 1.2rem;
@@ -270,11 +283,12 @@ body{
           color: black;
           text-align: center;
           font-size: 0.65rem;
-          @media (#{$tablet}) { margin-top: 0.8rem; font-size: 0.85rem; }
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin-top: 1rem; font-size: 1.2rem; }
-        }
-        &:hover{
-          transform: scale(1.05);
+          @media (#{$miniMobile}), (#{$mobile}) { font-size: 0.55rem; margin-top: 0.5rem; padding: 0 0.2rem }
+          @media (#{$largeMobile}) { font-size: 0.65rem }
+          @media (#{$tablet}) { margin-top: 0.8rem; font-size: 1rem }
+          @media (#{$largeTablet}) { margin-top: 0.8rem; font-size: 1.3rem }
+          @media (#{$notebook}), (#{$medium}) { font-size: 1.2rem; }
+          @media (#{$desktop}) { margin-top: 1rem; font-size: 1.2rem }
         }
         opacity: 0;
         @include fade(up, 1s);
@@ -287,21 +301,27 @@ body{
   .nosotros{
     @include divs();
     padding-top: 9%;
-    height: 110vh;
-    @media (#{$mini}) { padding-top: 15% }
-    @media (#{$mobile}) { padding-top: 15%; height: 100vh; }
-    @media (#{$tablet}) { height: 100vh }
-    @media (#{$notebook}), (#{$medium}), (#{$desktop}) { height: 90vh; }
+    @media (#{$miniMobile}) { padding-top: 15%; height: 105vh; }
+    @media (#{$mobile}) { padding-top: 15%; height: 110vh }
+    @media (#{$largeMobile}) { padding-top: 25%; height: 75vh }
+    @media (#{$tablet}) { padding-top: 20%; height: 100vh }
+    @media (#{$largeTablet}) { padding-top: 15%; height: 110vh }
+    @media (#{$notebook}), (#{$medium}) { padding-top: 15%; height: 100vh; }
+    @media (#{$desktop}) { height: 90vh; }
     .nosotrosDivision{
       margin: 0 auto;
-      @media (#{$mini}), (#{$mobile}) { gap: 1rem; }
-      @media (#{$tablet}),(#{$largeTablet}) { width: 90%; gap: 1.5rem; display: flex; }
-      @media (#{$notebook}), (#{$medium}), (#{$desktop}) { width: 80%; gap: 2rem; display: flex; }
+      @media (#{$miniMobile}), (#{$mobile}) { gap: 1rem; }
+      @media (#{$tablet}) { width: 90%; gap: 1.5rem; display: flex; }
+      @media (#{$largeTablet}) { width: 90%; gap: 1.5rem; display: flex; flex-direction: column; }
+      @media (#{$notebook}), (#{$medium}) { width: 90%; display: flex; }
+      @media (#{$desktop}) { width: 80%; gap: 2rem; display: flex; }
       .leftComponent{
         flex: 1;
         margin-top: 2rem;
         opacity: 0;
-        @media (#{$mini}), (#{$mobile}), (#{$tablet}), (#{$largeTablet}) { display: none; }
+        @media (#{$miniMobile}), (#{$mobile}), (#{$tablet}) { display: none; }
+        @media (#{$largeTablet}) { order: 1; margin: -50px; align-self: center;}
+        @media (#{$notebook}), (#{$medium}) { img { width: 80%; height: 80%; margin-top: 3rem }}
         &.inView{
           @include fade(up, 0.5s);
         }
@@ -314,17 +334,16 @@ body{
         padding: 1rem;
         opacity: 0;
         font-size: 1rem;
-        @media (#{$mini}) { padding: 1.2rem; font-size: 0.8rem }
-        @media (#{$tablet}), (#{$largeTablet}) { padding: 1.5rem; font-size: 1.2rem; }
-        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { padding: 2rem; font-size: 1.5rem; }
+        @media (#{$miniMobile}) { padding: 1.2rem; font-size: 0.8rem }
+        @media (#{$tablet}) { padding: 1.6rem; font-size: 1.6rem; }
+        @media (#{$largeTablet}) { padding: 1.7rem; font-size: 1.8rem; }
+        @media (#{$notebook}), (#{$medium}) { padding: 2rem; font-size: 1.3rem; }
+        @media (#{$desktop}) { padding: 2rem; font-size: 1.5rem; }
         h4{
           color: #728EC2;
           margin-block: 0.5rem;
           @media (#{$tablet}) { font-size: 1.5rem; margin-block: 0.8rem; }
           @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; margin-block: 1.1rem; }
-        }
-        .descripcion{
-          //
         }
         ul{
           margin-block: 1rem;
@@ -343,9 +362,10 @@ body{
   .tratamientos {
     @include divs();
     height: 120vh;
-    @media (#{$mobile}) { height: 110vh; }
     @include background('/img/backgrounds/backgroundTreatments.webp');
-    @media (#{$largeTablet}) { height: 110vh; }
+
+    @media (#{$mobile}), (#{$largeTablet}) { height: 110vh; }
+    @media (#{$largeMobile}) { height: 90vh; }
     h1{
       margin-top: 10%;
       color: whitesmoke;
@@ -360,11 +380,12 @@ body{
       margin: 15% auto 0;
       gap: 1.5rem;
 
-      @media (#{$mini}) { gap: 2rem; }
-      @media (#{$mobile}) { gap: 2.9rem; }
-      @media (#{$tablet}) { margin: 10% auto 0; gap: 5rem; width: 85%; }
+      @media (#{$miniMobile}) { margin: 7% auto 0; gap: 2rem; }
+      @media (#{$mobile}) { margin: 8% auto 0; gap: 2.9rem; }
+      @media (#{$largeMobile}) { margin: 12% auto 0; gap: 2.9rem; }
+      @media (#{$tablet}) { margin: 7% auto 0; gap: 5rem; width: 85%; }
       @media (#{$largeTablet}) { margin: 8% auto 0; width: 85%; gap: 6rem }
-      @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin: 5% auto 0; width: 60% }
+      @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin: 2.5% auto 0; width: 60% }
   
       .item {
         width: 18vw;
@@ -387,10 +408,11 @@ body{
           object-fit: cover;
           border-radius: 10px;
           
-          @media (#{$mini}) { width: 80px; height: 80px }
+          @media (#{$miniMobile}) { width: 80px; height: 80px }
           @media (#{$mobile}) { width: 80px; height: 80px }
-          @media (#{$tablet}) { width: 150px; height: 150px }
           @media (#{$largeTablet}) { width: 200px; height: 200px }
+          @media (#{$notebook}) { width: 120px;  height: 120px;}
+          @media (#{$tablet}), (#{$medium}) { width: 150px; height: 150px }
         }
   
         p {
@@ -407,9 +429,11 @@ body{
           border-radius: 20px;
           padding: 0.4rem 1.2rem; 
           height: 2rem;
-          @media (#{$mini}) { font-size: 0.5rem; padding: 0.1rem 1rem; }
-          @media (#{$tablet}), (#{$largeTablet}) { font-size: 1.2rem; padding: 0.7rem 1rem; height: 2.7rem; }
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.2rem; padding: 0.8rem 1.5rem; height: auto; }
+          @media (#{$miniMobile}) { font-size: .5rem; padding: .3rem 1.2rem }
+          @media (#{$mobile}), (#{$largeMobile}) { font-size: .5rem; padding: .4rem 1.2rem }
+          @media (#{$tablet}), (#{$largeTablet}) { font-size: 1.2rem; padding: 1rem 1.2rem; height: 2.7rem; }
+          @media (#{$notebook}), (#{$medium}) { font-size: .9rem; }
+          @media (#{$desktop}) { font-size: 1.2rem; padding: .8rem 1.5rem; height: auto; }
         }
         
         &:hover {
@@ -432,9 +456,9 @@ body{
   // --- SECCION CONTACTO ---
   .contacto {
     @include divs();
-    height: 100vh;
-    @media (#{$tablet}) { height: 110vh; }
-    @media (#{$notebook}), (#{$medium}), (#{$desktop}) { height: 110vh; }
+    @media (#{$miniMobile}), (#{$mobile}) { height: 125vh; }
+    @media (#{$largeMobile}), (#{$largeTablet}), (#{$desktop}) { height: 100vh }
+    @media (#{$tablet}), (#{$notebook}), (#{$medium}) { height: 110vh; }
     h1 {
       margin-top: 2.5%;
     }
@@ -442,32 +466,21 @@ body{
     .contactoDivision {
       display: flex;
       flex-direction: column;
-      
-      @media (#{$tablet}) {
-        margin-top: 2rem;
-      }
-      @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
-        flex-direction: row;
-        margin-top: 4rem;
-      }
+      @media (#{$tablet}) { margin-top: 1rem }
+      @media (#{$notebook}), (#{$medium}) { flex-direction: row; margin-top: 2rem }
+      @media (#{$desktop}) { flex-direction: row; margin-top: 4rem }
 
       .datos {
         opacity: 0;
         display: flex;
         flex: 1;
         order: -1; 
-        flex-direction: row; 
+        flex-direction: column; 
         flex-wrap: wrap; 
-        justify-content: space-around;
+        justify-content: center;
         
-        @media (#{$tablet}), (#{$largeTablet}) {
-          flex-direction: column;
-          justify-content: center;
-        }
         @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
           order: 0;
-          flex-direction: column;
-          justify-content: center;
         }
 
         &.inView {
@@ -475,57 +488,44 @@ body{
         }
 
         .contactoItem {
-          margin: 1rem; 
           text-align: left;
           
-          @media (#{$tablet}) {
-            margin: 1rem 3rem;
-          }
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
-            margin: 1.8rem 15rem;
-          }
+          @media (#{$miniMobile}), (#{$mobile}), (#{$largeMobile}) { margin: 0.5rem 2rem }
+          @media (#{$tablet}) { margin: 1rem 4rem }
+          @media (#{$largeTablet}) { margin: 1.5rem 7rem }
+          @media (#{$notebook}), (#{$medium}){ margin: 1rem 6rem }
+          @media (#{$desktop}) { margin: 1.8rem 10rem }
 
           h3 {
             color: #728EC2;
             font-size: 1.3rem;
-            @media (#{$tablet}) { font-size: 1.7rem; }
-            @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2.2rem; }
+            @media (#{$tablet}), (#{$largeTablet}) { font-size: 2rem; }
+            @media (#{$notebook}), (#{$medium}) { font-size: 1.8rem }
+            @media (#{$desktop}) { font-size: 2.2rem }
           }
 
           ul {
             margin: 0.5rem 0;
+            @media (#{$miniMobile}), (#{$mobile}) { margin: 0 }
             li {
               font-size: 1rem;
-              margin-left: 0.2rem;
-              @media (#{$tablet}) { font-size: 1.3rem; margin-left: 0.5rem; }
-              @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
-                font-size: 1.7rem; 
-                margin-left: 1rem; 
-              }
+              margin-left: 1rem;
+              @media (#{$tablet}), (#{$largeTablet}) { font-size: 1.5rem }
+              @media (#{$notebook}), (#{$medium}) { font-size: 1.4rem }
+              @media (#{$desktop}) { font-size: 1.7rem }
             }
           }
         }
 
         p {
-          text-align: center;
-          width: 90%;
-          margin: 1.5rem auto; 
-          font-size: 1.2rem;
-          
-          @media (#{$tablet}) {
-            text-align: justify;
-            width: 90%;
-            margin: 0.5rem 3rem;
-            font-size: 1.3rem;
-          }
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
-            text-align: justify;
-            width: 36rem;
-            margin: .5rem 15rem;
-            font-size: 1.7rem;
-            align-self: center;
-          }
-          
+          text-align: justify;
+          align-self: center;
+          margin-block: 1rem;
+          @media (#{$miniMobile}), (#{$mobile}), (#{$largeMobile}) { text-align: center; width: 80%; font-size: 1rem }
+          @media (#{$tablet}) { width: 85%;  font-size: 1.4rem }
+          @media (#{$largeTablet}) { width: 80%; font-size: 1.5rem }
+          @media (#{$notebook}), (#{$medium}) { width: 70%; font-size: 1.3rem; align-self: center }
+          @media (#{$desktop}) { width: 70%; font-size: 1.7rem; align-self: center }
           span {
             color: #527bc7; 
           }
@@ -533,29 +533,20 @@ body{
       }
 
       .map {
-        flex: 1;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-self: center;
         opacity: 0;
         margin-top: 2rem;
         max-height: 600px;
         max-width: 100vw;
-        @media (#{$mini}) { height: 500px; width: 90vw }
-        @media (#{$mobile}) { height: 350px; width: 90vw }
-        @media (#{$tablet}) { 
-          height: 450px; 
-          width: 100%;
-          margin-top: 0;
-          margin-left: 1rem;
-          margin-right: -1rem;
-        }
-        @media (#{$largeTablet}) { height: 450px; width: 90vw} 
-        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
-          margin-top: 0;
-          margin-left: 4rem;
-          margin-right: -4rem;
-        }
+        @media (#{$miniMobile}) { height: 250px; width: 90vw; align-self: center }
+        @media (#{$mobile}) { height: 325px; width: 90vw; align-self: center }
+        @media (#{$largeMobile}) { height: 400px; width: 90vw; align-self: center }
+        @media (#{$tablet}) { height: 450px; width: 90%; align-self: center }
+        @media (#{$largeTablet}) { height: 600px; width: 80vw; align-self: center } 
+        @media (#{$notebook}), (#{$medium}) { flex: 1; margin-top: 0; height: 550px; margin-inline: 4rem }
+        @media (#{$desktop}) { flex: 1; margin-top: 0; margin-inline: 3rem; height: 600px; }
         &.inView {
           @include fade(left, 0.5s);
         }
@@ -565,10 +556,18 @@ body{
 
   // --- TERM & CONDICIONS ---
   .tyc{
-    @include divs();
-    .terms{}
-    .privacy{}
-    .contact{}
+    padding: 1vh 2vw;
+    .description{
+    }
+    .section{
+
+    }
+    .privacy{
+      
+    }
+    .contact{
+
+    }
   }
 
   // --- FOOTER ---
@@ -578,6 +577,7 @@ body{
     color: black;
     text-align: center;
     padding-top: 1%;
+    margin-top: 5%;
     @media (#{$tablet}) { padding-top: 0.8%; }
     @media (#{$notebook}), (#{$medium}), (#{$desktop}) { padding-top: 0.5%; }
     a{
