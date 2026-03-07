@@ -17,7 +17,7 @@ interface Props {
 
 export const LegalSection = ({ data }: Props) => {
   return (
-    <section className="tyc">
+    <section className="section">
       <h2>{data.title}</h2>
       
       {data.description && <p className="description">{data.description}</p>}

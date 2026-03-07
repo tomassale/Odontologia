@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Footer from "./_components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Consultorio Odontológico",
@@ -20,8 +21,9 @@ export default function RootLayout({
     <html lang="es">
       <body>
         {children}
+        <Footer/>
       </body>
-      <SpeedInsights/>  
+      <SpeedInsights/>
     </html>
   )
 }
