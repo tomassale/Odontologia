@@ -6,9 +6,9 @@ export default function LeftComponent(){
       <h1>Dra. Silvia Pellegrino</h1>
       <p>
         Con más de {year} años de trayectoria dedicada a la salud bucal, la Dra. Pellegrino ha transformado la 
-        sonrisa y la calidad de vida de cientos de pacientes. El enfoque combina una sólida formación clínica 
+        sonrisa y la calidad de vida de miles de pacientes. El enfoque combina una sólida formación clínica 
         con una atención personalizada, priorizando siempre la comodidad y la tranquilidad en consulta. Especialista 
-        en odontología integral, con actualización constante en las técnicas más modernas para garantizar resultados 
+        en odontología integral, basando su práctica en métodos de eficacia comprobada y años de oficio para garantizar resultados 
         duraderos y naturales.
       </p>
       <a href="tel:46553353">
