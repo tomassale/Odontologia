@@ -1,8 +1,8 @@
-export default function LeftComponent(){
+export default function Presentation(){
   const year = new Date().getFullYear() - 1981;
 
   return(
-    <div className='leftComponent'> 
+    <div className='presentation'> 
       <h1>Dra. Silvia Pellegrino</h1>
       <p>
         Con más de {year} años de trayectoria dedicada a la salud bucal, la Dra. Pellegrino ha transformado la 

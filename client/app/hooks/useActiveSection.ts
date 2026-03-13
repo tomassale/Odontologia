@@ -13,7 +13,7 @@ export function useActiveSection(sectionIds: string[]) {
           }
         });
       },
-      { rootMargin: '-20% 0px -50% 0px' } // Detecta cuando el elemento cruza el centro exacto
+      { rootMargin: '-35% 0px' }
     );
 
     sectionIds.forEach((id) => {
