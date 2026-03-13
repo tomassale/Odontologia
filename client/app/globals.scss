@@ -107,6 +107,8 @@ body{
     opacity: 0;
     @include fade(right, 1s);
     @media (#{$largeTablet}) { top: 40%; right: 4%; } 
+    @media (#{$mobileLandscape}) { top: 5%; transform: scale(0.8); right:0 }
+    @media (#{$tabletLandscape}) { top: 25% }
     .headerLinks {
       padding: 0.5rem 0;
       width: 30px;
@@ -173,7 +175,9 @@ body{
     @include background('/img/backgrounds/backgroundDentist.webp');
     @media (#{$miniMobile}), (#{$mobile}), (#{$largeMobile}) { height: 90vh }
     @media (#{$tablet}), (#{$largeTablet}), (#{$notebook}), (#{$medium}), (#{$desktop}) { height: 100vh }
-    
+    @media (#{$mobileLandscape}) { height: 120vh; min-height: 120vh; padding-bottom: 5rem; }
+    @media (#{$largeMobileLandscape}) { min-height: 120vh }
+    @media (#{$tabletLandscape}) { height: auto; min-height: 110vh; padding-bottom: 6rem }
     .dentistaDivision{
       display: flex;
       justify-content: space-between;
@@ -191,12 +195,18 @@ body{
         @media (#{$miniMobile}), (#{$mobile}) { margin: 0 1rem }
         @media (#{$tablet}), (#{$largeTablet}) { margin: 2rem 2rem }
         @media (#{$notebook}), (#{$medium}) { margin: 0 2rem }
+        @media (#{$mobileLandscape}) { margin: 3rem 2rem 1rem }
+        @media (#{$largeMobileLandscape}) { margin: 4rem 3rem 1rem }
+        @media (#{$tabletLandscape}) { margin: 6rem 2rem 2rem 4rem }
         h1{
           width: 100%;
           color: whitesmoke;
           @media (#{$miniMobile}), (#{$mobile}) { text-align: center; font-size: 1.9rem; }
           @media (#{$largeMobile}) { text-align: center }
           @media (#{$tablet}), (#{$largeTablet}), (#{$notebook}), (#{$medium}), (#{$desktop}) { text-align: left; font-size: 3.5rem; margin-left: 3rem }
+          @media (#{$mobileLandscape}) { font-size: 1.5rem; text-align: left }
+          @media (#{$largeMobileLandscape}) { font-size: 2rem;  }
+          @media (#{$tabletLandscape}) { font-size: 3rem; margin-left: 0; }
         }
         p{
           z-index: 1;
@@ -207,6 +217,9 @@ body{
           @media (#{$largeTablet}) { font-size: 2.4rem; width: 90%; text-align: justify }
           @media (#{$notebook}), (#{$medium}) { font-size: 1.7rem; width: 65% }
           @media (#{$desktop}) { font-size: 2rem; width: 60% }
+          @media (#{$mobileLandscape}) { font-size: 0.9rem; margin-top: 1vh; width: 80% }
+          @media (#{$largeMobileLandscape}) { font-size: 1.1rem; width: 85%; }
+          @media (#{$tabletLandscape}) { font-size: 1.5rem; width: 85%; margin-top: 1rem }
         }
         a{
           background-color: #00000050;
@@ -219,6 +232,9 @@ body{
           @media (#{$largeTablet}) { font-size: 1.8rem; justify-content: center; margin-top: 10%; margin-left: 20% }
           @media (#{$notebook}), (#{$medium}) { font-size: 1.7rem; justify-content: center; margin-top: 5%; margin-left: 25% }
           @media (#{$desktop}) { font-size: 2rem; justify-content: center; margin: 2rem auto 15.5rem }
+          @media(#{$mobileLandscape}) { margin-top: 1.5rem; margin-left: 0; font-size: 0.9rem }
+          @media (#{$largeMobileLandscape}) { margin-top: 1.5rem; font-size: 1.1rem }
+          @media (#{$tabletLandscape}) { margin-top: 2rem; margin-left: 0 }
           &:hover{ transform: scale(1.02); color: #afc5f3 }
         }
       }
@@ -229,10 +245,12 @@ body{
         @media (#{$miniMobile}), (#{$mobile}) { display: none }
         @media (#{$largeMobile}), (#{$tablet}) { img { max-height: 50vh; width: auto }}
         @media (#{$notebook}), (#{$medium}) { img { height: 90vh; width: auto; }}
+        @media (#{$tabletLandscape}) { font-size: 1.4rem }
         img{
           opacity: 0;
           display: block;
           @include fade(up, 0.5s);
+          @media (#{$tabletLandscape}) { max-height: 65vh; width: auto }
         }
       }
     }
@@ -248,6 +266,13 @@ body{
       @media (#{$largeTablet}) { gap: 4rem; bottom: -10% }
       @media (#{$notebook}), (#{$medium}) { gap: 6rem; bottom: -22% }
       @media (#{$desktop}) { gap: 10rem; bottom: -13% }
+      @media (#{$mobileLandscape}) { bottom: -5%; transform: translateX(-50%) scale(0.8); gap: 1rem }
+      @media (#{$largeMobileLandscape}) { 
+        bottom: -5%; transform: translateX(-50%) scale(0.9); gap: 2rem;
+      }
+      @media (#{$tabletLandscape}) {
+        bottom: -5%; transform: translateX(-50%) scale(0.9); gap: 2rem;
+      }
       div{
         background: rgba(255, 255, 255, 0.822);
         backdrop-filter: blur(120px);
@@ -313,6 +338,9 @@ body{
     @media (#{$largeTablet}) { padding-top: 15%; height: 110vh }
     @media (#{$notebook}), (#{$medium}) { padding-top: 15%; height: 100vh; }
     @media (#{$desktop}) { height: 90vh; }
+    @media (#{$mobileLandscape}) { height: auto; min-height: 100vh; padding-top: 5%; padding-bottom: 2rem }
+    @media (#{$largeMobileLandscape}) { min-height: 110vh }
+    @media (#{$tabletLandscape}) { height: auto; min-height: 100vh; padding-top: 8%; padding-bottom: 3rem }
     .nosotrosDivision{
       margin: 0 auto;
       @media (#{$miniMobile}), (#{$mobile}) { gap: 1rem; }
@@ -320,6 +348,8 @@ body{
       @media (#{$largeTablet}) { width: 90%; gap: 1.5rem; display: flex; flex-direction: column; }
       @media (#{$notebook}), (#{$medium}) { width: 90%; display: flex; }
       @media (#{$desktop}) { width: 80%; gap: 2rem; display: flex; }
+      @media (#{$tabletLandscape}) { flex-direction: row; align-items: center }
+      
       .leftComponent{
         flex: 1;
         margin-top: 2rem;
@@ -327,6 +357,7 @@ body{
         @media (#{$miniMobile}), (#{$mobile}), (#{$tablet}) { display: none; }
         @media (#{$largeTablet}) { order: 1; margin: -50px; align-self: center;}
         @media (#{$notebook}), (#{$medium}) { img { width: 80%; height: 80%; margin-top: 3rem }}
+        @media (#{$tabletLandscape}) { display: flex; flex: 1; img { width: 90%; height: auto; margin-top: 0}}
         &.inView{
           @include fade(up, 0.5s);
         }
@@ -343,17 +374,27 @@ body{
         @media (#{$tablet}) { padding: 1.6rem; font-size: 1.6rem; }
         @media (#{$largeTablet}) { padding: 1.7rem; font-size: 1.8rem; }
         @media (#{$notebook}), (#{$medium}) { padding: 2rem; font-size: 1.3rem; }
-        @media (#{$desktop}) { padding: 2rem; font-size: 1.5rem; }
+        @media (#{$desktop}) { padding: 2rem; font-size: 1.5rem }
+        @media (#{$mobileLandscape}) { padding: 0.5rem 2rem; font-size: 0.9rem }
+        @media (#{$largeMobileLandscape}) { padding: 1rem 3rem; }
+        @media (#{$tabletLandscape}) { padding: 1rem 2rem; font-size: 1.2rem; }
         h4{
           color: #728EC2;
           margin-block: 0.5rem;
           @media (#{$tablet}) { font-size: 1.5rem; margin-block: 0.8rem; }
           @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 2rem; margin-block: 1.1rem; }
+          @media (#{$mobileLandscape}) { font-size: 1.2rem }
+          @media (#{$largeMobileLandscape}) { font-size: 1.3rem }
+          @media (#{$tabletLandscape}) { font-size: 1.5rem }
+          
         }
         ul{
           margin-block: 1rem;
+          @media (#{$mobileLandscape}) { margin-block: 0.5rem }
+
           li{
             margin-left: 1.8rem;
+            @media (#{$tabletLandscape}) { font-size: 1.1rem; margin-block: 0.8rem }
           }
         }
         &.inView{
@@ -371,10 +412,16 @@ body{
 
     @media (#{$mobile}), (#{$largeTablet}) { height: 110vh; }
     @media (#{$largeMobile}) { height: 90vh; }
+    @media (#{$mobileLandscape}) { height: auto; min-height: 130vh; padding-bottom: 2rem }
+    @media (#{$largeMobileLandscape}) { min-height: 140vh; }
+    @media (#{$tabletLandscape}) { height: auto; min-height: 120vh; padding-bottom: 4rem }
     h1{
       margin-top: 10%;
       color: whitesmoke;
       @media (#{$tablet}), (#{$largeTablet}) { padding-top: 15%; font-size: 4rem }
+      @media (#{$mobileLandscape}) { margin-top: 5%; padding-top: 1.5rem; font-size: 1.5rem }
+      @media (#{$largeMobileLandscape}) { margin-top: 5%; font-size: 2rem; }
+      @media (#{$tabletLandscape}) { margin-top: 5%; font-size: 3rem; padding-top: 2rem}
     }
     .tratamientoItems {
       display: flex;
@@ -391,6 +438,9 @@ body{
       @media (#{$tablet}) { margin: 7% auto 0; gap: 5rem; width: 85%; }
       @media (#{$largeTablet}) { margin: 8% auto 0; width: 85%; gap: 6rem }
       @media (#{$notebook}), (#{$medium}), (#{$desktop}) { margin: 2.5% auto 0; width: 60% }
+      @media (#{$mobileLandscape}) { margin: 5% auto 0; gap: 1rem }
+      @media (#{$largeMobileLandscape}) { margin: 5% auto 0; width: 85%; gap: 1.5rem }
+      @media (#{$tabletLandscape}) { margin: 4% auto 0; width: 90%; gap: 2rem }
   
       .item {
         width: 18vw;
@@ -403,8 +453,10 @@ body{
         transform: translateY(40px);
         flex-shrink: 0;
         transition: scale 0.3s ease;
-        @media (#{$tablet}) { width: 20vw }
-  
+        @media (#{$mobileLandscape}) { width: 15vw }
+        @media (#{$largeMobileLandscape}) { width: 18vw }
+        @media (#{$tablet}), (#{$tabletLandscape}) { width: 20vw }
+
         img {
           width: 100%;
           max-width: 200px;
@@ -418,6 +470,9 @@ body{
           @media (#{$largeTablet}) { width: 200px; height: 200px }
           @media (#{$notebook}) { width: 120px;  height: 120px;}
           @media (#{$tablet}), (#{$medium}) { width: 150px; height: 150px }
+          @media (#{$mobileLandscape}) { width: 70px; height: 70px }
+          @media (#{$largeMobileLandscape}) { width: 90px; height: 90px }
+          @media (#{$tabletLandscape}) { width: 120px; height: 120px }
         }
   
         p {
@@ -439,6 +494,9 @@ body{
           @media (#{$tablet}), (#{$largeTablet}) { font-size: 1.2rem; padding: 1rem 1.2rem; height: 2.7rem; }
           @media (#{$notebook}), (#{$medium}) { font-size: .9rem; }
           @media (#{$desktop}) { font-size: 1.2rem; padding: .8rem 1.5rem; height: auto; }
+          @media (#{$mobileLandscape}) { font-size: .5rem; padding: .3rem .5rem; height: auto }
+          @media (#{$largeMobileLandscape}) { font-size: .75rem; padding: 04rem .8rem }
+          @media (#{$tabletLandscape}) { font-size: .9rem; padding: .5rem 1rem; height: auto; }
         }
         
         &:hover {
@@ -463,9 +521,14 @@ body{
     @include divs();
     @media (#{$miniMobile}), (#{$mobile}) { height: 125vh; }
     @media (#{$largeMobile}), (#{$largeTablet}), (#{$desktop}) { height: 100vh }
-    @media (#{$tablet}), (#{$notebook}), (#{$medium}) { height: 110vh; }
+    @media (#{$tablet}), (#{$notebook}), (#{$medium}) { height: 110vh }
+    @media (#{$mobileLandscape}) { height: auto; min-height: 100vh; padding-bottom: 2rem }
+    @media (#{$largeMobileLandscape}) { min-height: 120vh }
+    @media (#{$tabletLandscape}) { height: auto; min-height: 100vh; padding-bottom: 3rem }
     h1 {
       margin-top: 2.5%;
+      @media (#{$mobileLandscape}) { margin-top: 5%; font-size: 1.5rem }
+      @media (#{$tabletLandscape}) { margin-top: 5%; font-size: 3rem }
     }
 
     .contactoDivision {
@@ -474,6 +537,10 @@ body{
       @media (#{$tablet}) { margin-top: 1rem }
       @media (#{$notebook}), (#{$medium}) { flex-direction: row; margin-top: 2rem }
       @media (#{$desktop}) { flex-direction: row; margin-top: 4rem }
+      @media (#{$mobileLandscape}) { 
+        flex-direction: row; justify-content: center; align-items: flex-start; margin-top: 1rem; 
+      }
+      @media (#{$tabletLandscape}) { flex-direction: row; align-items: center; margin-top: 2rem }
 
       .datos {
         opacity: 0;
@@ -484,9 +551,8 @@ body{
         flex-wrap: wrap; 
         justify-content: center;
         
-        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { 
-          order: 0;
-        }
+        @media (#{$notebook}), (#{$medium}), (#{$desktop}) { order: 0 }
+        @media (#{$mobileLandscape}), (#{$tabletLandscape}) { flex: 1 }
 
         &.inView {
           @include fade(right, 0.5s);
@@ -500,13 +566,18 @@ body{
           @media (#{$largeTablet}) { margin: 1.5rem 7rem }
           @media (#{$notebook}), (#{$medium}){ margin: 1rem 6rem }
           @media (#{$desktop}) { margin: 1.8rem 10rem }
-
+          @media (#{$mobileLandscape}) { margin: 0 }
+          @media (#{$largeMobileLandscape}) { margin: .5rem 2rem }
+          @media (#{$tabletLandscape}) { margin: 1rem 3rem }
           h3 {
             color: #728EC2;
             font-size: 1.3rem;
             @media (#{$tablet}), (#{$largeTablet}) { font-size: 2rem; }
             @media (#{$notebook}), (#{$medium}) { font-size: 1.8rem }
             @media (#{$desktop}) { font-size: 2.2rem }
+            @media (#{$mobileLandscape}) { font-size: 1.1rem }
+            @media (#{$largeMobileLandscape}) { font-size: 1.3rem }
+            @media (#{$tabletLandscape}) { font-size: 1.6rem }
           }
 
           ul {
@@ -518,6 +589,9 @@ body{
               @media (#{$tablet}), (#{$largeTablet}) { font-size: 1.5rem }
               @media (#{$notebook}), (#{$medium}) { font-size: 1.4rem }
               @media (#{$desktop}) { font-size: 1.7rem }
+              @media (#{$mobileLandscape}) { font-size: 0.8rem }
+              @media (#{$largeMobileLandscape}) { font-size: .95rem }
+              @media (#{$tabletLandscape}) { font-size: 1.2rem; margin-top: .5rem }
             }
           }
         }
@@ -531,6 +605,15 @@ body{
           @media (#{$largeTablet}) { width: 80%; font-size: 1.5rem }
           @media (#{$notebook}), (#{$medium}) { width: 70%; font-size: 1.3rem; align-self: center }
           @media (#{$desktop}) { width: 70%; font-size: 1.7rem; align-self: center }
+          @media (#{$mobileLandscape}) {
+            width: 90%; font-size: 0.8rem; margin-block: 0.5rem; text-align: left; margin-left: 1rem 
+          }
+          @media (#{$largeMobileLandscape}) { 
+            width: 85%; font-size: 0.95rem; margin-left: 2rem
+          }
+          @media (#{$tabletLandscape}) { 
+            width: 85%; font-size: 1.2rem; margin-left: 3rem; text-align: left
+          }
           span {
             color: #527bc7; 
           }
@@ -552,6 +635,9 @@ body{
         @media (#{$largeTablet}) { height: 600px; width: 80vw; align-self: center } 
         @media (#{$notebook}), (#{$medium}) { flex: 1; margin-top: 0; height: 550px; margin-inline: 4rem }
         @media (#{$desktop}) { flex: 1; margin-top: 0; margin-inline: 3rem; height: 600px; }
+        @media (#{$mobileLandscape}) { flex: 1; height: 200px; width: 40vw; margin-top: 0; margin-right: 2rem }
+        @media (#{$largeMobileLandscape}) { height: 280px; width: 45vw }
+        @media (#{$tabletLandscape}) { flex: 1; height: 400px; width: 45vw; margin-top: 0; margin-right: 3rem }
         &.inView {
           @include fade(left, 0.5s);
         }
@@ -627,303 +713,6 @@ body{
         0.2px  0.2px 0 #fff;
       @media (#{$tablet}) { font-size: 1.1rem; }
       @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.4rem; }
-    }
-  }
-}
-
-
-// =====================================================================
-// ESTILOS LANDSCAPE (Agregar al final de tu archivo)
-// =====================================================================
-// Creamos la variable enfocada en dispositivos móviles girados (poca altura)
-
-@media (#{$mobileLandscape}) {
-  body {
-    // Escalamos un poco el header y lo subimos para que no tape el texto
-    .header {
-      top: 5%;
-      transform: scale(0.8);
-      right: 0;
-    }
-
-    // --- SECCION DENTISTA ---
-    .dentista {
-      // Pasamos de alturas fijas en VH a alturas automáticas para evitar que se corte
-      height: auto;
-      min-height: 120vh;
-      padding-bottom: 5rem; 
-      
-      .dentistaDivision {
-        .leftComponent {
-          margin: 3rem 2rem 1rem;
-          h1 { font-size: 1.5rem; text-align: left; }
-          p { font-size: 0.9rem; margin-top: 1vh; width: 80%; }
-          a { margin-top: 1.5rem; margin-left: 0; font-size: 0.9rem; }
-        }
-      }
-      .cardsDentista {
-        bottom: -5%;
-        transform: translateX(-50%) scale(0.8);
-        gap: 1rem;
-      }
-    }
-
-    // --- SECCION NOSOTROS ---
-    .nosotros {
-      height: auto;
-      min-height: 100vh;
-      padding-top: 5%;
-      padding-bottom: 2rem;
-      
-      .nosotrosDivision {
-        .rightComponent {
-          padding: 0.5rem 2rem;
-          font-size: 0.9rem;
-          h4 { font-size: 1.2rem; }
-          ul { margin-block: 0.5rem; }
-        }
-      }
-    }
-
-    // --- SECCION TRATAMIENTOS ---
-    .tratamientos {
-      height: auto;
-      min-height: 130vh;
-      padding-bottom: 2rem;
-      
-      h1 { margin-top: 5%; padding-top: 1.5rem; font-size: 1.5rem; }
-      .tratamientoItems {
-        margin: 5% auto 0;
-        gap: 1rem;
-        .item {
-          width: 15vw;
-          img { width: 70px; height: 70px; }
-          p { font-size: 0.6rem; padding: 0.3rem 0.5rem; height: auto; }
-        }
-      }
-    }
-
-    // --- SECCION CONTACTO ---
-    .contacto {
-      height: auto;
-      min-height: 100vh;
-      padding-bottom: 2rem;
-      
-      h1 { margin-top: 5%; font-size: 1.5rem; }
-      .contactoDivision {
-        // En landscape, nos sobra ancho, así que aprovechamos para poner mapa y datos lado a lado
-        flex-direction: row; 
-        justify-content: center;
-        align-items: flex-start;
-        margin-top: 1rem;
-        
-        .datos {
-          flex: 1;
-          .contactoItem { margin: 0 1rem; h3 { font-size: 1.1rem; } ul li { font-size: 0.8rem; } }
-          p { width: 90%; font-size: 0.8rem; margin-block: 0.5rem; text-align: left; margin-left: 1rem; }
-        }
-        .map {
-          flex: 1;
-          height: 200px;
-          width: 40vw;
-          margin-top: 0;
-          margin-right: 2rem;
-        }
-      }
-    }
-  }
-}
-
-// ESTILOS LARGE MOBILE LANDSCAPE (Celulares grandes en horizontal)
-
-
-@media (#{$largeMobileLandscape}) {
-  body {
-    // --- SECCION DENTISTA ---
-    .dentista {
-      min-height: 120vh;
-      
-      .dentistaDivision {
-        .leftComponent {
-          margin: 4rem 3rem 1rem; // Aprovechamos más el ancho disponible
-          h1 { font-size: 2rem; }
-          p { font-size: 1.1rem; width: 85%; } // Texto un poco más grande y ancho
-          a { margin-top: 1.5rem; font-size: 1.1rem; }
-        }
-      }
-      .cardsDentista {
-        bottom: -5%;
-        transform: translateX(-50%) scale(0.9); // Escalamos al 90% en lugar del 80%
-        gap: 2rem; // Les damos más respiración entre las tarjetas
-      }
-    }
-
-    // --- SECCION NOSOTROS ---
-    .nosotros {
-      min-height: 110vh;
-      
-      .nosotrosDivision {
-        .rightComponent {
-          padding: 1rem 3rem;
-          font-size: 1.1rem; // Devolvemos un tamaño de texto legible
-          h4 { font-size: 1.3rem; }
-        }
-      }
-    }
-
-    // --- SECCION TRATAMIENTOS ---
-    .tratamientos {
-      min-height: 140vh; // Le damos espacio suficiente para que quepan los items
-      
-      h1 { margin-top: 5%; font-size: 2rem; }
-      .tratamientoItems {
-        margin: 5% auto 0;
-        width: 85%;
-        gap: 1.5rem;
-        
-        .item {
-          width: 18vw;
-          img { width: 90px; height: 90px; } // Imágenes un poco más grandes
-          p { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
-        }
-      }
-    }
-
-    // --- SECCION CONTACTO ---
-    .contacto {
-      min-height: 120vh;
-      
-      .contactoDivision {
-        // Mantenemos el formato horizontal pero con mejores márgenes
-        .datos {
-          .contactoItem { 
-            margin: 0.5rem 2rem; 
-            h3 { font-size: 1.3rem; } 
-            ul li { font-size: 0.95rem; } 
-          }
-          p { width: 85%; font-size: 0.95rem; margin-left: 2rem; }
-        }
-        .map {
-          height: 280px; // Mapa un poquito más alto
-          width: 45vw;
-        }
-      }
-    }
-  }
-}
-
-// =====================================================================
-// ESTILOS TABLET LANDSCAPE (Agregar al final de tu archivo)
-// =====================================================================
-// Variable para capturar iPads y Tablets en posición horizontal
-
-@media (#{$tabletLandscape}) {
-  body {
-    // --- HEADER ---
-    .header {
-      top: 25%; // Subimos un poco el menú lateral para centrarlo mejor
-    }
-
-    // --- SECCION DENTISTA ---
-    .dentista {
-      height: auto;
-      min-height: 110vh;
-      padding-bottom: 6rem;
-
-      .dentistaDivision {
-        .leftComponent {
-          margin: 6rem 2rem 2rem 4rem;
-          h1 { font-size: 3rem; margin-left: 0; }
-          p { font-size: 1.5rem; width: 85%; margin-top: 1rem; }
-          a { margin-top: 2rem; margin-left: 0; font-size: 1.4rem; }
-        }
-        .rightComponent {
-           // Limitamos la altura de la imagen para que no desborde hacia abajo
-           img { max-height: 65vh; width: auto; }
-        }
-      }
-      .cardsDentista {
-        bottom: -5%;
-        transform: translateX(-50%) scale(0.85); // Reducimos un 15% el tamaño de las cards
-        gap: 2rem;
-      }
-    }
-
-    // --- SECCION NOSOTROS ---
-    .nosotros {
-      height: auto;
-      min-height: 100vh;
-      padding-top: 8%; 
-      padding-bottom: 3rem;
-      
-      .nosotrosDivision {
-        flex-direction: row; // En landscape sobra ancho, ponemos el contenido lado a lado
-        align-items: center;
-        
-        .leftComponent {
-           display: flex; // Mostramos la imagen (que estaba oculta en tablet portrait)
-           flex: 1;
-           img { width: 90%; height: auto; margin-top: 0; }
-        }
-        .rightComponent {
-          padding: 1rem 2rem;
-          font-size: 1.2rem;
-          h4 { font-size: 1.5rem; }
-          ul li { font-size: 1.1rem; margin-block: 0.8rem; }
-        }
-      }
-    }
-
-    // --- SECCION TRATAMIENTOS ---
-    .tratamientos {
-      height: auto;
-      min-height: 120vh;
-      padding-bottom: 4rem;
-      
-      h1 { margin-top: 5%; font-size: 3rem; padding-top: 2rem; }
-      .tratamientoItems {
-        margin: 4% auto 0;
-        width: 90%;
-        gap: 2rem;
-        
-        .item {
-          width: 20vw;
-          img { width: 120px; height: 120px; }
-          p { font-size: 0.9rem; padding: 0.5rem 1rem; height: auto; }
-        }
-      }
-    }
-
-    // --- SECCION CONTACTO ---
-    .contacto {
-      height: auto;
-      min-height: 100vh;
-      padding-bottom: 3rem;
-      
-      h1 { margin-top: 5%; font-size: 3rem; }
-      .contactoDivision {
-        // Aprovechamos el formato panorámico para alinear datos y mapa horizontalmente
-        flex-direction: row; 
-        align-items: center;
-        margin-top: 2rem;
-        
-        .datos {
-          flex: 1;
-          .contactoItem { 
-            margin: 1rem 3rem; 
-            h3 { font-size: 1.6rem; } 
-            ul li { font-size: 1.2rem; margin-top: 0.5rem; } 
-          }
-          p { width: 85%; font-size: 1.2rem; margin-left: 3rem; text-align: left; }
-        }
-        .map {
-          flex: 1;
-          height: 400px; // Altura fija moderada para que no estire la sección
-          width: 45vw;
-          margin-top: 0;
-          margin-right: 3rem;
-        }
-      }
     }
   }
 }
