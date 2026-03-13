@@ -5,9 +5,28 @@ import { Instrument_Serif, Playfair_Display } from 'next/font/google'
 import Footer from "./_components/footer/Footer";
 
 export const metadata: Metadata = {
-  title: "Consultorio Odontológico",
-  description: "Consultorio de Odontología - Atención Lunes y Miércoles de 15:30 a 20:00",
-  keywords: ["Dentista", "Zona Oeste", "Tablada", "Consultorio"],
+  title: "Dra. Silvia Pellegrino | Consultorio Odontológico Tablada",
+  description: "Consultorio odontológico integral en La Tablada, Zona Oeste. Brindamos atención personalizada para el cuidado de tu salud bucal. Horarios de atención: Lunes y Miércoles de 15:30 a 20:00 hs.",
+  keywords: [
+    "Dentista", 
+    "Zona Oeste", 
+    "Tablada",
+    "Consultorio Odontológico",
+    "Conductos",
+    "Tratamiento bucal",
+    "Bruxismo",
+    "Periodoncia",
+    "Estetica dental",
+    "Implantes",
+    "Protesis dentales",
+    "Odontología niños",
+    "Odontología adultos",
+    "Dentista niños",
+    "Dentista tablada",
+    "Consultorio",
+    "Salud Bucal",
+    "Turnos dentista",
+  ],
   icons: {
     icon: "/favicon.ico"
   }
