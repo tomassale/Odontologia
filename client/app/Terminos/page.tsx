@@ -17,7 +17,7 @@ const LegalPage: React.FC = () => {
 
   return (
     <div className="tyc">
-      <Link href={'/'}>
+      <Link className='volver' href={'/'}>
         Volver
       </Link>
         <h1>Términos y Condiciones y Política de Privacidad</h1>

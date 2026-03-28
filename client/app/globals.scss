@@ -676,6 +676,12 @@ body{
   // --- TERM & CONDICIONS ---
   .tyc{
     padding: 1vh 2vw;
+    .volver{
+      font-size: 2rem;
+      &:hover{
+        color: rgb(114, 114, 230)
+      }
+    }
     h1{
       font-size: 1.5rem;
       @media (#{$tablet}), (#{$largeTablet}) { font-size: 2rem;  }
@@ -702,9 +708,9 @@ body{
       .section{
         h3{
           margin-block: 1%;
-          @media (#{$miniMobile}), (#{$mobile}), (#{$largeMobile}) { font-size: 1rem; margin-left: 4% }
-          @media (#{$tablet}), (#{$largeTablet}) { font-size: 1.2rem; margin-left: 4% }
-          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.3rem; margin-left: 5% }
+          @media (#{$miniMobile}), (#{$mobile}), (#{$largeMobile}) { font-size: 1.1rem; margin-left: 4% }
+          @media (#{$tablet}), (#{$largeTablet}) { font-size: 1.3rem; margin-left: 4% }
+          @media (#{$notebook}), (#{$medium}), (#{$desktop}) { font-size: 1.6rem; margin-left: 5% }
         }
         ul{
           @media (#{$miniMobile}), (#{$mobile}), (#{$largeMobile}) { margin-block: 3%; margin-left: 2% }
