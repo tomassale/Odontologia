@@ -28,7 +28,7 @@ const LegalPage: React.FC = () => {
           <LegalSection key={section.id} data={section} />
         ))}
     </div>
-  );
-};
+  )
+}
 
 export default LegalPage;
